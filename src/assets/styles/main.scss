@@ -2,15 +2,17 @@
 
 @import url("../css/font-awesome.css");
 
-@mixin left-text{
-
+@mixin left-text {
 }
 
 /* Custom properties/variables  */
 
 $main-white: #ffffff;
 $main-black: #000000;
-
+$main-red: #f55858;
+$navbar-left-position: 5rem;
+$main-height: 180rem;
+$banner-header-area-left-position: 20vw;
 /* Base reset */
 * {
   margin: 0;
@@ -33,9 +35,8 @@ html {
   */
   font-size: 62.5%;
   scroll-behavior: smooth;
-  height:180rem;
+  height: $main-height;
 }
-
 
 /* 
  * screen size divided by browser base font size
@@ -82,122 +83,178 @@ body {
   background-image: url("../images/banner-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  width:100%;
   height: 110vh;
-  margin-top: -14vh;
+  margin-top: -37vh;
 
-  .banner-header-area header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    position: relative;
-    top: 15.9vh;
-    
-
-    .logo {
-      position:relative;
-      top: 1.3rem;
-      left:1.5rem;
-      font-size: 2.8rem;
-      font-weight: 500;
-      color: $main-white;
-      letter-spacing: 0.2rem;
-      white-space: nowrap;
-      //margin-right: 18rem;
-      //background-color: gray;
-    }
-
+  .banner-header-area header {
+    position: absolute;
+    top: 1rem;
+    height: $main-height;
 
     //navbar
     .navbar {
       min-width: 60rem;
-      position: relative;
-      left: 2.7rem;
-    }
-    
-    ul {
-      margin-top: 1rem;
-      
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    a {
-      display:block;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
       text-transform: uppercase;
-      text-decoration: none;
-      font-size: 1.28rem;
-      padding-right: 3.9rem;
-      color: $main-white;
-      font-weight: 400;
-      letter-spacing: 0.12rem;
-      line-height: 4rem;
-      height: 4rem;
-      border: transparent;
-      white-space: nowrap;
-    }
+      display: flex;
+      justify-content: space-between;
+      z-index: 99;
 
-    li:last-child {
-      padding-right: 0;
-    }
-
-    li.submenu {
-
-      .anchorSub::after {
-        font-family: FontAwesome;
-        content: "\f107";
-        font-size: 1.2rem;
+      .logo {
+        position: relative;
+        top: 1.3rem;
+        left: 4.7rem;
+        font-size: 2.8rem;
+        font-weight: 500;
         color: $main-white;
-        margin-left: 1rem;
-        position:relative;
-        top: 0.2rem;
+        letter-spacing: 0.2rem;
+        white-space: nowrap;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
       }
 
       ul {
-        position: absolute;
-        transition: all 0.3s ease;
-        z-index: -1;
-        opacity: 0;
+        margin-top: 1rem;
+        list-style: none;
         display: flex;
-        flex-direction: column;
-        width: 20rem;
-        transform: translateY(-2em);
-        visibility: hidden;
-        
+        justify-content: flex-end;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        margin-left: 13rem;
 
+        //navbar items
         li a {
-          background-color: $main-white;
-          border-bottom: 1px solid #f5f5f5;
-          color: $main-black;
+          display: block;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-size: 1.28rem;
+          margin-right: 3.9rem;
+          color: $main-white;
+          font-weight: 400;
+          letter-spacing: 0.12rem;
+          line-height: 4rem;
+          height: 4rem;
+          border: transparent;
+          white-space: nowrap;
+          transition: all 0.3s ease 0s;
+
+          &:hover {
+            color: $main-red;
+          }
+          &:active {
+            color: $main-red;
+          }
         }
-        
-      }
-      &:hover ul{
-        opacity: 1;
-        z-index: 10;
-        transform: translateY(0%);
-        visibility: visible;
-      }
 
-      
+        li:last-child {
+          margin-right: 0;
+        }
+
+        //submenu
+        li.submenu {
+          .anchorSub::after {
+            font-family: FontAwesome;
+            content: "\f107";
+            font-size: 1.2rem;
+            color: $main-white;
+            margin-left: 1rem;
+            position: relative;
+            top: 0.2rem;
+          }
+
+          ul {
+            position: absolute;
+            box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            top: 4rem;
+            right: 7rem;
+            display: flex;
+            flex-direction: column;
+            width: 20rem;
+            transform: translateY(-2em);
+            visibility: hidden;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s ease-in-out 0s;
+
+            li {
+              margin-left: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+
+            li a {
+              display: block;
+              background-color: $main-white;
+              border-bottom: 1px solid #f5f5f5;
+              color: #3b566e;
+              padding-left: 2rem;
+              height: 4rem;
+              line-height: 4rem;
+              transition: all 0.3s ease 0s;
+              -webkit-transition: all 0.3s ease 0s;
+              -moz-transition: all 0.3s ease 0s;
+              -o-transition: all 0.3s ease 0s;
+              font-size: 1.3rem;
+              position: relative;
+
+              //red line before drop down items
+              &:before {
+                content: "";
+                position: absolute;
+                width: 0rem;
+                height: 4rem;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                transition: all 0.3s ease;
+                background: $main-red;
+              }
+
+              &:hover {
+                background: $main-white;
+                color: $main-red;
+                padding-left: 2.5rem;
+
+                &:before {
+                  width: 0.3rem;
+                }
+              }
+            }
+          }
+
+          &:hover ul {
+            opacity: 1;
+            z-index: 1;
+            transform: translateY(0%);
+            visibility: visible;
+            transition-delay: 0.2s;
+          }
+        }
+      }
     }
-
   }
 
-  .banner-bottom-area{
+  .banner-bottom-area {
     display: flex;
     justify-content: space-between;
-    margin-top: 21vh;
-
-    .left-column{
-      position:relative;
-      left:-1rem;
+    margin-top: 20vh;
+    position: relative;
+    top: 30vh;
+    left: $navbar-left-position;
+    .left-column {
       color: $main-white;
       width: 45rem;
-      margin-left: 4rem;
+
       line-height: 1.5;
-    
+
       h1 {
         font-size: 6.3rem;
         font-weight: 400;
@@ -207,27 +264,20 @@ body {
       }
 
       p {
-        font-size:1.7rem;
+        font-size: 1.7rem;
         font-weight: 200;
         line-height: 1.72;
       }
-
-      
-  }
-
-    .right-column{
-      //background-color: rgb(117, 142, 163);
-      margin-right:2%;
-      width: 50rem;
-
-      #img-slider{
-        max-width:90%;
-        height: auto;
-        
-      }
     }
 
+    .right-column {
+      margin-right: 2%;
+      width: 50rem;
+
+      #img-slider {
+        max-width: 90%;
+        height: auto;
+      }
+    }
   }
-
 }
-

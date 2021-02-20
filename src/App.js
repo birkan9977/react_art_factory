@@ -1,5 +1,5 @@
-import './assets/styles/main.css'
-import Banner from './components/bannerarea.js'
+import "./assets/styles/main.css";
+import Banner from "./components/bannerarea.js";
 
 function App() {
   return (
