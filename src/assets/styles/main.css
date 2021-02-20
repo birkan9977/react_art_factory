@@ -136,13 +136,7 @@ body {
 .banner-area .banner-header-area header .navbar ul li:last-child {
   margin-right: 0;
 }
-.banner-area
-  .banner-header-area
-  header
-  .navbar
-  ul
-  li.submenu
-  .anchorSub::after {
+.banner-area .banner-header-area header .navbar ul li.submenu .anchorSub::after {
   font-family: FontAwesome;
   content: "";
   font-size: 1.2rem;
@@ -202,15 +196,7 @@ body {
   color: #f55858;
   padding-left: 2.5rem;
 }
-.banner-area
-  .banner-header-area
-  header
-  .navbar
-  ul
-  li.submenu
-  ul
-  li
-  a:hover:before {
+.banner-area .banner-header-area header .navbar ul li.submenu ul li a:hover:before {
   width: 0.3rem;
 }
 .banner-area .banner-header-area header .navbar ul li.submenu:hover ul {
@@ -261,6 +247,7 @@ body {
 }
 .banner-area .banner-bottom-area .left-column .button:hover {
   background-color: #0088e8;
+  cursor: pointer;
 }
 .banner-area .banner-bottom-area .right-column {
   margin-right: 2%;
