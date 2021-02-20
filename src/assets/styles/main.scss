@@ -13,6 +13,8 @@ $main-red: #f55858;
 $navbar-left-position: 5rem;
 $main-height: 180rem;
 $banner-header-area-left-position: 20vw;
+$button-hover-color: #0088e8;
+
 /* Base reset */
 * {
   margin: 0;
@@ -267,6 +269,24 @@ body {
         font-size: 1.7rem;
         font-weight: 200;
         line-height: 1.72;
+      }
+
+      .button {
+        background-color: $main-red;
+        color: $main-white;
+        text-transform: uppercase;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+        height: 4.5rem;
+        width: 15rem;
+        margin-top: 3rem;
+        border: none;
+        border-radius: 5rem;
+        transition: all 0.3s ease 0s;
+        &:hover {
+          background-color: $button-hover-color;
+        }
       }
     }
 

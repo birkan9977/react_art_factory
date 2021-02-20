@@ -136,7 +136,13 @@ body {
 .banner-area .banner-header-area header .navbar ul li:last-child {
   margin-right: 0;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu .anchorSub::after {
+.banner-area
+  .banner-header-area
+  header
+  .navbar
+  ul
+  li.submenu
+  .anchorSub::after {
   font-family: FontAwesome;
   content: "";
   font-size: 1.2rem;
@@ -196,7 +202,15 @@ body {
   color: #f55858;
   padding-left: 2.5rem;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li a:hover:before {
+.banner-area
+  .banner-header-area
+  header
+  .navbar
+  ul
+  li.submenu
+  ul
+  li
+  a:hover:before {
   width: 0.3rem;
 }
 .banner-area .banner-header-area header .navbar ul li.submenu:hover ul {
@@ -230,6 +244,23 @@ body {
   font-size: 1.7rem;
   font-weight: 200;
   line-height: 1.72;
+}
+.banner-area .banner-bottom-area .left-column .button {
+  background-color: #f55858;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  height: 4.5rem;
+  width: 15rem;
+  margin-top: 3rem;
+  border: none;
+  border-radius: 5rem;
+  transition: all 0.3s ease 0s;
+}
+.banner-area .banner-bottom-area .left-column .button:hover {
+  background-color: #0088e8;
 }
 .banner-area .banner-bottom-area .right-column {
   margin-right: 2%;

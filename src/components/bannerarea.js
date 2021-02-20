@@ -1,6 +1,6 @@
 import sliderimg from "../assets/images/slider-icon.png";
 import Header from "../components/header";
-
+import Button from "../components/button";
 export default function Banner() {
   return (
     <div className="banner-area">
@@ -18,6 +18,7 @@ export default function Banner() {
             This template is available for 100% free of charge on TemplateMo.
             Download, modify and use this for your business website.
           </p>
+          <Button buttonContent="Find Out More" />
         </div>
 
         <div className="right-column">
