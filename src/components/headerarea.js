@@ -1,11 +1,11 @@
 import sliderimg from "../assets/images/slider-icon.png";
-import Header from "../components/header";
-import Button from "../components/button";
-export default function Banner() {
+import Navbar from "./header";
+import Button from "./button";
+export default function Header() {
   return (
     <div className="banner-area">
       <div className="banner-header-area container">
-        <Header />
+        <Navbar />
       </div>
 
       <div className="banner-bottom-area container">

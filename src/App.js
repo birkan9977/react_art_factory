@@ -1,10 +1,10 @@
 import "./assets/styles/main.css";
-import Banner from "./components/bannerarea.js";
+import Header from "./components/headerarea.js";
 
 function App() {
   return (
     <div className="app-container">
-      <Banner />
+      <Header />
     </div>
   );
 }

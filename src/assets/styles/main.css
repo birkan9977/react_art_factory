@@ -71,22 +71,24 @@ body {
   height: 110vh;
   margin-top: -37vh;
 }
-.banner-area .banner-header-area header {
+
+#main-header {
   position: absolute;
   top: 1rem;
   height: 180rem;
 }
-.banner-area .banner-header-area header .navbar {
+
+#main-navbar {
   min-width: 60rem;
-  position: -webkit-sticky;
-  position: sticky;
+  position: absolute;
   top: 0;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   z-index: 99;
 }
-.banner-area .banner-header-area header .navbar .logo {
+
+#main-logo {
   position: relative;
   top: 1.3rem;
   left: 4.7rem;
@@ -101,7 +103,8 @@ body {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.banner-area .banner-header-area header .navbar ul {
+
+#menu {
   margin-top: 1rem;
   list-style: none;
   display: flex;
@@ -112,7 +115,8 @@ body {
   transition: all 0.3s ease 0s;
   margin-left: 13rem;
 }
-.banner-area .banner-header-area header .navbar ul li a {
+
+.menu-items {
   display: block;
   text-transform: uppercase;
   text-decoration: none;
@@ -127,16 +131,18 @@ body {
   white-space: nowrap;
   transition: all 0.3s ease 0s;
 }
-.banner-area .banner-header-area header .navbar ul li a:hover {
+.menu-items:hover {
   color: #f55858;
 }
-.banner-area .banner-header-area header .navbar ul li a:active {
+.menu-items:active {
   color: #f55858;
 }
-.banner-area .banner-header-area header .navbar ul li:last-child {
+
+#menu:last-child {
   margin-right: 0;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu .anchorSub::after {
+
+.submenu-list .anchorSub::after {
   font-family: FontAwesome;
   content: "";
   font-size: 1.2rem;
@@ -145,12 +151,20 @@ body {
   position: relative;
   top: 0.2rem;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul {
+.submenu-list:hover ul {
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  visibility: visible;
+  transition-delay: 0.2s;
+}
+
+.submenu {
   position: absolute;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  top: 4rem;
-  right: 7rem;
+  top: 5rem;
+  right: 8rem;
   display: flex;
   flex-direction: column;
   width: 20rem;
@@ -160,12 +174,14 @@ body {
   opacity: 0;
   transition: all 0.3s ease-in-out 0s;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li {
+
+.submenu-list-item {
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li a {
+
+.submenu-anchor-item {
   display: block;
   background-color: #ffffff;
   border-bottom: 1px solid #f5f5f5;
@@ -179,8 +195,9 @@ body {
   -o-transition: all 0.3s ease 0s;
   font-size: 1.3rem;
   position: relative;
+  text-decoration: none;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li a:before {
+.submenu-anchor-item:before {
   content: "";
   position: absolute;
   width: 0rem;
@@ -191,22 +208,16 @@ body {
   transition: all 0.3s ease;
   background: #f55858;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li a:hover {
+.submenu-anchor-item:hover {
   background: #ffffff;
   color: #f55858;
   padding-left: 2.5rem;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu ul li a:hover:before {
+.submenu-anchor-item:hover:before {
   width: 0.3rem;
 }
-.banner-area .banner-header-area header .navbar ul li.submenu:hover ul {
-  opacity: 1;
-  z-index: 1;
-  transform: translateY(0%);
-  visibility: visible;
-  transition-delay: 0.2s;
-}
-.banner-area .banner-bottom-area {
+
+.banner-bottom-area {
   display: flex;
   justify-content: space-between;
   margin-top: 20vh;
@@ -214,24 +225,25 @@ body {
   top: 30vh;
   left: 5rem;
 }
-.banner-area .banner-bottom-area .left-column {
+
+.left-column {
   color: #ffffff;
   width: 45rem;
   line-height: 1.5;
 }
-.banner-area .banner-bottom-area .left-column h1 {
+.left-column h1 {
   font-size: 6.3rem;
   font-weight: 400;
   line-height: 8.4rem;
   letter-spacing: 0.2rem;
   margin-bottom: 3.6rem;
 }
-.banner-area .banner-bottom-area .left-column p {
+.left-column p {
   font-size: 1.7rem;
   font-weight: 200;
   line-height: 1.72;
 }
-.banner-area .banner-bottom-area .left-column .button {
+.left-column .button {
   background-color: #f55858;
   color: #ffffff;
   text-transform: uppercase;
@@ -245,15 +257,17 @@ body {
   border-radius: 5rem;
   transition: all 0.3s ease 0s;
 }
-.banner-area .banner-bottom-area .left-column .button:hover {
+.left-column .button:hover {
   background-color: #0088e8;
   cursor: pointer;
 }
-.banner-area .banner-bottom-area .right-column {
+
+.right-column {
   margin-right: 2%;
   width: 50rem;
 }
-.banner-area .banner-bottom-area .right-column #img-slider {
+
+#img-slider {
   max-width: 90%;
   height: auto;
 }
