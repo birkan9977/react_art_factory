@@ -2,7 +2,9 @@
 
 @import url("../css/font-awesome.css");
 
-@mixin left-text {
+@mixin inside_navbar {
+  transform: translateY(-2.6em);
+  padding-top: 5rem;
 }
 
 /* Custom properties/variables  */
@@ -10,10 +12,90 @@
 $main-white: #ffffff;
 $main-black: #000000;
 $main-red: #f55858;
-$navbar-left-position: 5rem;
+$navbar-left-position: 1.5rem;
 $main-height: 180rem;
 $banner-header-area-left-position: 20vw;
 $button-hover-color: #0088e8;
+
+
+/* 
+---------------------------------------------
+reset
+--------------------------------------------- 
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 /* Base reset */
 * {
@@ -27,6 +109,9 @@ $button-hover-color: #0088e8;
 *::after {
   box-sizing: inherit;
 }
+
+
+
 
 html {
   box-sizing: border-box;
@@ -73,8 +158,13 @@ body {
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   color: $main-black;
+  
 }
-
+.app-container {
+  background-color: $main-white;
+  height: $main-height;
+  
+}
 .container {
   max-width: 114rem;
   display: block;
@@ -88,6 +178,27 @@ body {
   background-size: cover;
   height: 110vh;
   margin-top: -37vh;
+  
+}
+
+.sticky-header-background {
+  position: absolute;
+  background-color: black;
+  margin-top: 10rem;
+  height: 13rem;
+  width:100%;
+  visibility: hidden;
+  
+}
+
+.sticky-header-background-visible {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: black;
+  height: 13rem;
+  width:100%;
+  top:0;
+  
 }
 
 #main-header {
@@ -97,43 +208,65 @@ body {
 }
 
 //navbar
-#main-navbar {
+.navbar-default {
   min-width: 60rem;
-  //position: -webkit-sticky;
-  position: absolute;
   top: 0;
   text-transform: uppercase;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 99;
+  height: 14rem;
+  width:100vw;
+  left: $navbar-left-position;
+  @include inside_navbar;
+  //background-color: rgb(72, 155, 130);
+}
+
+@media (max-width: 75em) {
+  .navbar-default {
+    left: $navbar-left-position - 1.5rem;
+  }
+}
+
+.navbar-initial {
+  position: absolute;
+  color: $main-white;
+}
+
+.sticky-header {
+  padding-top: 1rem;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color:$main-white;
+  -webkit-box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
+  -moz-box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
+  box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
+  color: black;
+  height: 13rem;
+  transition: all 0.3s ease;
+  @include inside_navbar;
+  
 }
 
 #main-logo {
   position: relative;
   top: 1.3rem;
-  left: 4.7rem;
   font-size: 2.8rem;
   font-weight: 500;
-  color: $main-white;
+  color:inherit;
   letter-spacing: 0.2rem;
   white-space: nowrap;
   text-decoration: none;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
 }
 
-#menu {
+.menu {
   margin-top: 1rem;
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  margin-left: 13rem;
+  margin-left: 20rem;
+  //background-color: black;
+  height:4rem;
 }
 
 //navbar items
@@ -143,14 +276,15 @@ body {
   text-decoration: none;
   font-size: 1.28rem;
   margin-right: 3.9rem;
-  color: $main-white;
+  color:inherit;
   font-weight: 400;
   letter-spacing: 0.12rem;
   line-height: 4rem;
   height: 4rem;
   border: transparent;
   white-space: nowrap;
-  transition: all 0.3s ease 0s;
+  //background-color: rgb(206, 136, 136);
+
 
   &:hover {
     color: $main-red;
@@ -170,13 +304,12 @@ body {
     font-family: FontAwesome;
     content: "\f107";
     font-size: 1.2rem;
-    color: $main-white;
     margin-left: 1rem;
     position: relative;
     top: 0.2rem;
   }
 
-  &:hover ul {
+  &:hover .submenu {
     opacity: 1;
     z-index: 1;
     transform: translateY(0%);
@@ -189,8 +322,7 @@ body {
   position: absolute;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  top: 5rem;
-  right: 8rem;
+  top: 10rem;
   display: flex;
   flex-direction: column;
   width: 20rem;
@@ -199,7 +331,10 @@ body {
   z-index: -1;
   opacity: 0;
   transition: all 0.3s ease-in-out 0s;
+  
 }
+
+
 
 .submenu-list-item {
   margin-left: 0px;
@@ -222,7 +357,7 @@ body {
   font-size: 1.3rem;
   position: relative;
   text-decoration: none;
-
+  
   //red line before drop down items
   &:before {
     content: "";
@@ -263,7 +398,7 @@ body {
   line-height: 1.5;
 
   h1 {
-    font-size: 6.3rem;
+    font-size: 6.2rem;
     font-weight: 400;
     line-height: 8.4rem;
     letter-spacing: 0.2rem;
@@ -272,30 +407,31 @@ body {
 
   p {
     font-size: 1.7rem;
-    font-weight: 200;
+    font-weight: 100;
     line-height: 1.72;
-  }
-
-  .button {
-    background-color: $main-red;
-    color: $main-white;
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    height: 4.5rem;
-    width: 15rem;
-    margin-top: 3rem;
-    border: none;
-    border-radius: 5rem;
-    transition: all 0.3s ease 0s;
-    &:hover {
-      background-color: $button-hover-color;
-      cursor: pointer;
-    }
+    letter-spacing: 0.025rem;
+    margin-bottom: 0.4rem;
   }
 }
 
+.button {
+  background-color: $main-red;
+  color: $main-white;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  height: 4.5rem;
+  width: 15rem;
+  margin-top: 3rem;
+  border: none;
+  border-radius: 5rem;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    background-color: $button-hover-color;
+    cursor: pointer;
+  }
+}
 //right column
 .right-column {
   margin-right: 2%;
