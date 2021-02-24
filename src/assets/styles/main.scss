@@ -17,7 +17,6 @@ $main-height: 180rem;
 $banner-header-area-left-position: 20vw;
 $button-hover-color: #0088e8;
 
-
 /* 
 ---------------------------------------------
 reset
@@ -110,9 +109,6 @@ h6 {
   box-sizing: inherit;
 }
 
-
-
-
 html {
   box-sizing: border-box;
 
@@ -158,19 +154,18 @@ body {
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   color: $main-black;
-  
 }
 .app-container {
-  background-color: $main-white;
-  height: $main-height;
-  
-}
-.container {
+  //background-color: $main-white;
+  //height: $main-height;
   max-width: 114rem;
   display: block;
   margin: auto;
 }
-
+.main-container {
+  position: absolute;
+  height: $main-height;
+}
 //Header Area
 .banner-area {
   background-image: url("../images/banner-bg.png");
@@ -178,27 +173,30 @@ body {
   background-size: cover;
   height: 110vh;
   margin-top: -37vh;
-  
 }
 
 .sticky-header-background {
   position: absolute;
-  background-color: black;
-  margin-top: 10rem;
-  height: 13rem;
-  width:100%;
+  background-color: $main-white;
+  height: 10rem;
+  width: 100%;
   visibility: hidden;
-  
 }
 
 .sticky-header-background-visible {
   position: -webkit-sticky;
-  position: sticky;
-  background-color: black;
+  position: fixed;
   height: 13rem;
-  width:100%;
-  top:0;
-  
+  width: 100%;
+  top: 0;
+  background-color: $main-white;
+  //background-color:rgb(133, 82, 82);
+  -webkit-box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
+  -moz-box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
+  box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
+  transition: all 0.3s ease;
+  @include inside_navbar;
+  z-index: 120;
 }
 
 #main-header {
@@ -209,23 +207,19 @@ body {
 
 //navbar
 .navbar-default {
+  max-width: 114rem;
   min-width: 60rem;
   top: 0;
   text-transform: uppercase;
   display: flex;
-  justify-content: center;
+
+  justify-content: space-between;
   z-index: 99;
   height: 14rem;
-  width:100vw;
+  width: 100vw;
   left: $navbar-left-position;
   @include inside_navbar;
   //background-color: rgb(72, 155, 130);
-}
-
-@media (max-width: 75em) {
-  .navbar-default {
-    left: $navbar-left-position - 1.5rem;
-  }
 }
 
 .navbar-initial {
@@ -237,15 +231,12 @@ body {
   padding-top: 1rem;
   position: -webkit-sticky;
   position: sticky;
-  background-color:$main-white;
-  -webkit-box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
-  -moz-box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
-  box-shadow: 2px 5px 8px -5px rgba(130,127,130,1);
+
   color: black;
   height: 13rem;
   transition: all 0.3s ease;
   @include inside_navbar;
-  
+  z-index: 140;
 }
 
 #main-logo {
@@ -253,7 +244,7 @@ body {
   top: 1.3rem;
   font-size: 2.8rem;
   font-weight: 500;
-  color:inherit;
+  color: inherit;
   letter-spacing: 0.2rem;
   white-space: nowrap;
   text-decoration: none;
@@ -263,10 +254,7 @@ body {
   margin-top: 1rem;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
-  margin-left: 20rem;
-  //background-color: black;
-  height:4rem;
+  height: 4rem;
 }
 
 //navbar items
@@ -276,7 +264,7 @@ body {
   text-decoration: none;
   font-size: 1.28rem;
   margin-right: 3.9rem;
-  color:inherit;
+  color: inherit;
   font-weight: 400;
   letter-spacing: 0.12rem;
   line-height: 4rem;
@@ -284,7 +272,6 @@ body {
   border: transparent;
   white-space: nowrap;
   //background-color: rgb(206, 136, 136);
-
 
   &:hover {
     color: $main-red;
@@ -331,10 +318,7 @@ body {
   z-index: -1;
   opacity: 0;
   transition: all 0.3s ease-in-out 0s;
-  
 }
-
-
 
 .submenu-list-item {
   margin-left: 0px;
@@ -357,7 +341,7 @@ body {
   font-size: 1.3rem;
   position: relative;
   text-decoration: none;
-  
+
   //red line before drop down items
   &:before {
     content: "";
@@ -393,15 +377,14 @@ body {
 
 .left-column {
   color: $main-white;
-  width: 45rem;
-
   line-height: 1.5;
+  margin-right: 6rem;
 
   h1 {
-    font-size: 6.2rem;
+    font-size: 6rem;
     font-weight: 400;
-    line-height: 8.4rem;
-    letter-spacing: 0.2rem;
+    line-height: 8.7rem;
+    letter-spacing: 0.3rem;
     margin-bottom: 3.6rem;
   }
 
@@ -434,11 +417,35 @@ body {
 }
 //right column
 .right-column {
-  margin-right: 2%;
-  width: 50rem;
+  position: relative;
+  left: -5rem;
 }
 
 #img-slider {
-  max-width: 90%;
+  width: 52rem;
   height: auto;
+  position: relative;
+  top: -6rem;
+}
+
+@media (max-width: 75em) {
+  .navbar-default {
+    justify-content: center;
+    left: $navbar-left-position - 2rem;
+  }
+
+  .menu {
+    margin-left: 6rem;
+  }
+
+  .banner-bottom-area {
+    justify-content: center;
+    width: 90%;
+    left: $navbar-left-position + 5rem;
+  }
+
+  #img-slider {
+    top: -2rem;
+    left: 5rem;
+  }
 }

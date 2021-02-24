@@ -1,33 +1,27 @@
 import sliderimg from "../assets/images/slider-icon.png";
 import Button from "./button";
-import { useScrollPosition } from "./scrollposition"
-import { useState } from 'react'
+import { useScrollPosition } from "./scrollposition";
+import { useState } from "react";
 
 export default function Header() {
-  
-  const [showStickyHeader, setShowStickyHeader] = useState(false)
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
 
-  useScrollPosition(({ prevPos, currPos }) => {
-    const isShow = currPos.y < -400
-    console.log(currPos.y, prevPos.y)
-    if (isShow !== showStickyHeader) {
-      setShowStickyHeader(isShow)
-    }
-  }, [showStickyHeader])
-
-  
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y < -400;
+      console.log(currPos.y, prevPos.y);
+      if (isShow !== showStickyHeader) {
+        setShowStickyHeader(isShow);
+      }
+    },
+    [showStickyHeader]
+  );
 
   return (
-    <div>
-    
-    <div className="banner-area">
-      
-      <div className="banner-header-area container">
-      
-      {/*navbar*/}
-      </div>
+    <>
+      <div className="banner-header-area">{/*navbar*/}</div>
 
-      <div className="banner-bottom-area container">
+      <div className="banner-bottom-area">
         <div className="left-column">
           <h1>
             Art Factory is free <strong>for YOU</strong>
@@ -44,7 +38,6 @@ export default function Header() {
           <img id="img-slider" src={sliderimg} alt="vector-graphic01"></img>
         </div>
       </div>
-    </div>
-    </div>
+    </>
   );
 }

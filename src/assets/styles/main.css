@@ -138,14 +138,14 @@ body {
 }
 
 .app-container {
-  background-color: #ffffff;
-  height: 180rem;
-}
-
-.container {
   max-width: 114rem;
   display: block;
   margin: auto;
+}
+
+.main-container {
+  position: absolute;
+  height: 180rem;
 }
 
 .banner-area {
@@ -158,20 +158,26 @@ body {
 
 .sticky-header-background {
   position: absolute;
-  background-color: black;
-  margin-top: 10rem;
-  height: 13rem;
+  background-color: #ffffff;
+  height: 10rem;
   width: 100%;
   visibility: hidden;
 }
 
 .sticky-header-background-visible {
   position: -webkit-sticky;
-  position: sticky;
-  background-color: black;
+  position: fixed;
   height: 13rem;
   width: 100%;
   top: 0;
+  background-color: #ffffff;
+  -webkit-box-shadow: 2px 5px 8px -5px #827f82;
+  -moz-box-shadow: 2px 5px 8px -5px #827f82;
+  box-shadow: 2px 5px 8px -5px #827f82;
+  transition: all 0.3s ease;
+  transform: translateY(-2.6em);
+  padding-top: 5rem;
+  z-index: 120;
 }
 
 #main-header {
@@ -181,11 +187,12 @@ body {
 }
 
 .navbar-default {
+  max-width: 114rem;
   min-width: 60rem;
   top: 0;
   text-transform: uppercase;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 99;
   height: 14rem;
   width: 100vw;
@@ -194,11 +201,6 @@ body {
   padding-top: 5rem;
 }
 
-@media (max-width: 75em) {
-  .navbar-default {
-    left: 0rem;
-  }
-}
 .navbar-initial {
   position: absolute;
   color: #ffffff;
@@ -208,15 +210,12 @@ body {
   padding-top: 1rem;
   position: -webkit-sticky;
   position: sticky;
-  background-color: #ffffff;
-  -webkit-box-shadow: 2px 5px 8px -5px #827f82;
-  -moz-box-shadow: 2px 5px 8px -5px #827f82;
-  box-shadow: 2px 5px 8px -5px #827f82;
   color: black;
   height: 13rem;
   transition: all 0.3s ease;
   transform: translateY(-2.6em);
   padding-top: 5rem;
+  z-index: 140;
 }
 
 #main-logo {
@@ -234,8 +233,6 @@ body {
   margin-top: 1rem;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
-  margin-left: 20rem;
   height: 4rem;
 }
 
@@ -348,14 +345,14 @@ body {
 
 .left-column {
   color: #ffffff;
-  width: 45rem;
   line-height: 1.5;
+  margin-right: 6rem;
 }
 .left-column h1 {
-  font-size: 6.2rem;
+  font-size: 6rem;
   font-weight: 400;
-  line-height: 8.4rem;
-  letter-spacing: 0.2rem;
+  line-height: 8.7rem;
+  letter-spacing: 0.3rem;
   margin-bottom: 3.6rem;
 }
 .left-column p {
@@ -386,13 +383,37 @@ body {
 }
 
 .right-column {
-  margin-right: 2%;
-  width: 50rem;
+  position: relative;
+  left: -5rem;
 }
 
 #img-slider {
-  max-width: 90%;
+  width: 52rem;
   height: auto;
+  position: relative;
+  top: -6rem;
+}
+
+@media (max-width: 75em) {
+  .navbar-default {
+    justify-content: center;
+    left: -0.5rem;
+  }
+
+  .menu {
+    margin-left: 6rem;
+  }
+
+  .banner-bottom-area {
+    justify-content: center;
+    width: 90%;
+    left: 6.5rem;
+  }
+
+  #img-slider {
+    top: -2rem;
+    left: 5rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
