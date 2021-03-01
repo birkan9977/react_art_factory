@@ -4,7 +4,7 @@
 
 @mixin inside_navbar {
   transform: translateY(-2.6em);
-  padding-top: 5rem;
+  padding-top: 6rem;
 }
 
 /* Custom properties/variables  */
@@ -118,7 +118,7 @@ html {
   */
   font-size: 62.5%;
   scroll-behavior: smooth;
-  height: $main-height;
+  //height: $main-height;
 }
 
 /* 
@@ -155,17 +155,17 @@ body {
   font-weight: 400;
   color: $main-black;
 }
-.app-container {
-  //background-color: $main-white;
+
+.main-container {
   //height: $main-height;
+}
+
+.app-container {
   max-width: 114rem;
   display: block;
   margin: auto;
 }
-.main-container {
-  position: absolute;
-  height: $main-height;
-}
+
 //Header Area
 .banner-area {
   background-image: url("../images/banner-bg.png");
@@ -176,27 +176,31 @@ body {
 }
 
 .sticky-header-background {
-  position: absolute;
-  background-color: $main-white;
-  height: 10rem;
+  position: fixed;
+  background-color: transparent;
+  height: 9rem;
   width: 100%;
+  top: 0;
   visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease 0s, opacity 1s ease-in-out 0.7s;
 }
 
 .sticky-header-background-visible {
-  position: -webkit-sticky;
   position: fixed;
   height: 13rem;
   width: 100%;
   top: 0;
   background-color: $main-white;
-  //background-color:rgb(133, 82, 82);
   -webkit-box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
   -moz-box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
   box-shadow: 2px 5px 8px -5px rgba(130, 127, 130, 1);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease 0s, opacity 0.3s ease;
   @include inside_navbar;
-  z-index: 120;
+  z-index: 140;
+  opacity: 1;
+  visibility: visible;
 }
 
 #main-header {
@@ -207,19 +211,18 @@ body {
 
 //navbar
 .navbar-default {
+  position: relative;
   max-width: 114rem;
   min-width: 60rem;
   top: 0;
   text-transform: uppercase;
   display: flex;
-
   justify-content: space-between;
   z-index: 99;
-  height: 14rem;
   width: 100vw;
   left: $navbar-left-position;
   @include inside_navbar;
-  //background-color: rgb(72, 155, 130);
+  //transition: all 0.3s ease 0s;
 }
 
 .navbar-initial {
@@ -227,16 +230,15 @@ body {
   color: $main-white;
 }
 
+//inside sticky header logo and menu
 .sticky-header {
   padding-top: 1rem;
   position: -webkit-sticky;
   position: sticky;
-
   color: black;
-  height: 13rem;
-  transition: all 0.3s ease;
   @include inside_navbar;
   z-index: 140;
+  opacity: 1;
 }
 
 #main-logo {
@@ -255,6 +257,11 @@ body {
   list-style: none;
   display: flex;
   height: 4rem;
+  text-decoration: none;
+
+  li {
+    z-index: 100;
+  }
 }
 
 //navbar items
@@ -271,14 +278,19 @@ body {
   height: 4rem;
   border: transparent;
   white-space: nowrap;
-  //background-color: rgb(206, 136, 136);
+  list-style-type: none;
 
   &:hover {
     color: $main-red;
+    cursor: pointer;
   }
   &:active {
     color: $main-red;
   }
+}
+
+.active-page {
+  color: $main-red;
 }
 
 #menu:last-child {
@@ -287,13 +299,13 @@ body {
 
 //submenu
 .submenu-list {
-  .anchorSub::after {
+  &:after {
     font-family: FontAwesome;
     content: "\f107";
     font-size: 1.2rem;
-    margin-left: 1rem;
     position: relative;
-    top: 0.2rem;
+    top: -3.2rem;
+    right: -9rem;
   }
 
   &:hover .submenu {
@@ -303,13 +315,17 @@ body {
     visibility: visible;
     transition-delay: 0.2s;
   }
+
+  &:hover .menu-items {
+    color: $main-red;
+  }
 }
 
 .submenu {
   position: absolute;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  top: 10rem;
+  top: 10.9rem;
   display: flex;
   flex-direction: column;
   width: 20rem;
@@ -324,6 +340,7 @@ body {
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  list-style-type: none;
 }
 
 .submenu-anchor-item {
@@ -366,6 +383,16 @@ body {
   }
 }
 
+.sub-active-page {
+  background: $main-white;
+  color: $main-red;
+  padding-left: 2.5rem;
+
+  &:before {
+    width: 0.3rem;
+  }
+}
+
 .banner-bottom-area {
   display: flex;
   justify-content: space-between;
@@ -398,7 +425,6 @@ body {
 }
 
 .button {
-  background-color: $main-red;
   color: $main-white;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
@@ -410,11 +436,23 @@ body {
   border: none;
   border-radius: 5rem;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.button-red {
+  background-color: $main-red;
   &:hover {
     background-color: $button-hover-color;
-    cursor: pointer;
   }
 }
+
+.button-green {
+  background-color: #00b4c6;
+  &:hover {
+    background-color: #0088e8;
+  }
+}
+
 //right column
 .right-column {
   position: relative;
@@ -447,5 +485,92 @@ body {
   #img-slider {
     top: -2rem;
     left: 5rem;
+  }
+}
+
+// sections
+#section-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hr-line {
+  position: relative;
+  top: 32vh;
+  color: hsl(0, 0, 99%);
+  border-top: 1px solid hsl(0, 0, 92%);
+}
+
+section {
+  display: flex;
+}
+
+#about {
+  position: relative;
+  top: 25vh;
+  color: #1e1e1e;
+
+  .left-col {
+    position: relative;
+    left: 2rem;
+  }
+
+  .right-col {
+    position: relative;
+    top: -3rem;
+    left: 5.5rem;
+    width: 80%;
+  }
+
+  a {
+    text-decoration: none;
+    color: hsl(211, 100%, 50%);
+    &:hover {
+      color: hsl(211, 100%, 35%);
+    }
+  }
+
+  img {
+    position: relative;
+    top: -5rem;
+    width: 63rem;
+    visibility: hidden;
+  }
+
+  @keyframes leftimage {
+    from {
+      visibility: hidden;
+      transform: translate(-5rem);
+      opacity: 0;
+    }
+
+    to {
+      visibility: visible;
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+
+  .left-image-animate {
+    animation: leftimage 2s forwards;
+  }
+
+  h5 {
+    width: 80%;
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 4rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: hsl(0, 0%, 20%);
+    width: 90%;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    letter-spacing: 0.5px;
   }
 }
