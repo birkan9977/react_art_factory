@@ -2,6 +2,10 @@ import leftImage from "../assets/images/left-image.png";
 import Button from "../components/button";
 
 export default function About() {
+  const handleClick = () => {
+    const element = document.getElementById("about2");
+    window.scroll(0, element.offsetTop - 200);
+  };
   return (
     <div id="section-container">
       <section id="about">
@@ -22,7 +26,11 @@ export default function About() {
             amet, ultrices malesuada odio. Donec non quam euismod, mattis dui a,
             ultrices nisi.
           </p>
-          <Button buttonContent="Discover More" class="button-green" />
+          <Button
+            buttonContent="Discover More"
+            class="button-green"
+            handleClick={handleClick}
+          />
         </div>
       </section>
     </div>

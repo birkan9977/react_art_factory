@@ -1,11 +1,12 @@
 import "./assets/styles/main.css";
-import Header from "./components/headerarea.js";
+import BannerArea from "./components/banner-area.js";
 import Navbar from "./components/navbar";
 import StickyBack from "./components/sticky-back";
 
 import { useScrollPosition } from "./components/scrollposition";
 import { useState, useEffect } from "react";
 import About from "./pages/about";
+import About2 from "./pages/about2";
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -35,21 +36,21 @@ function App() {
   }, [animateLeftPicture]);
 
   return (
-    <>
-      <div className="main-container">
-        <StickyBack show={showStickyHeader} />
-
-        <div className="banner-area">
-          <Header />
-        </div>
-        <div className="app-container">
+    <div className="main-container">
+      <StickyBack show={showStickyHeader} />
+      <div className="banner-backgroung-image"></div>
+      <div className="app-container">
+        <div className="dummy-container"></div>
+        <header>
           <Navbar show={showStickyHeader} />
-
-          <About />
-        </div>
+          <BannerArea />
+        </header>
+        <About />
         <hr className="hr-line"></hr>
+        <About2 />
       </div>
-    </>
+      
+    </div>
   );
 }
 

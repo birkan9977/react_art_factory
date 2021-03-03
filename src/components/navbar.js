@@ -12,9 +12,9 @@ export default function Navbar(props) {
   useEffect(() => {
     let element = document.getElementById("main-navbar");
     if (props.show) {
-      element.className = "navbar-default sticky-header";
+      element.classList.add("sticky-header");
     } else {
-      element.className = "navbar-default navbar-initial";
+      element.classList.remove("sticky-header");
     }
   }, [props.show]);
 
@@ -69,7 +69,7 @@ export default function Navbar(props) {
   }, [currentWindowLocation]);
 
   const handleClick = (e) => {
-    //console.log(e.target.innerHTML)
+    console.log(e.target.innerHTML);
     const clickedItem = e.target.innerHTML;
     const element = document.getElementById(clickedItem.toLowerCase());
 
@@ -83,7 +83,8 @@ export default function Navbar(props) {
         break;
 
       case "Services":
-        window.scroll(0, element.offsetTop - 460);
+        window.scroll(0, element.offsetTop);
+        console.log(element.offsetTop);
         break;
 
       default:
@@ -92,118 +93,100 @@ export default function Navbar(props) {
   };
 
   return (
-    <div>
-      <header id="main-header">
-        <nav id="main-navbar" className="navbar-default navbar-initial">
-          {/*logo start*/}
-          <a href="/" id="main-logo">
-            Art Factory
-          </a>
+    <nav id="main-navbar" className="navbar-default">
+      {/*logo start*/}
+      <a href="/" id="main-logo">
+        Art Factory
+      </a>
 
-          {/*logo end*/}
-          {/*menu start*/}
-          <Router>
-            <ul className="menu">
-              <li>
-                <Link to="/" className="menu-items" onClick={handleClick}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/#about" className="menu-items" onClick={handleClick}>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#services"
-                  className="menu-items"
-                  onClick={handleClick}
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/#frequentlyQuestions"
-                  className="menu-items"
-                  onClick={handleClick}
-                >
-                  Frequently Questions
-                </Link>
-              </li>
+      {/*logo end*/}
+      {/*menu start*/}
+      <Router>
+        <ul className="menu">
+          <li>
+            <Link to="/" className="menu-items" onClick={handleClick}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/#about" className="menu-items" onClick={handleClick}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/#services" className="menu-items" onClick={handleClick}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/#frequentlyQuestions"
+              className="menu-items"
+              onClick={handleClick}
+            >
+              Frequently Questions
+            </Link>
+          </li>
 
-              <li className="submenu-list">
-                <Link
-                  to="dropdown"
-                  className="menu-items"
-                  id="dropDownMenuItem"
-                >
-                  Drop Down
-                </Link>
-                <ul className="submenu">
-                  <li className="submenu-list-item">
-                    <Link
-                      to="/dropdown#aboutus"
-                      className="submenu-anchor-item"
-                    >
-                      About Us
-                    </Link>
-                  </li>
-                  <li className="submenu-list-item">
-                    <Link
-                      to="/dropdown#features"
-                      className="submenu-anchor-item"
-                    >
-                      Features
-                    </Link>
-                  </li>
-                  <li className="submenu-list-item">
-                    <Link to="/dropdown#faq" className="submenu-anchor-item">
-                      FAQ's
-                    </Link>
-                  </li>
-                  <li className="submenu-list-item">
-                    <Link to="/dropdown#blog" className="submenu-anchor-item">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-
-              <li>
-                <Link to="/#contact" className="menu-items">
-                  Contact Us
+          <li className="submenu-list">
+            <Link to="dropdown" className="menu-items" id="dropDownMenuItem">
+              Drop Down
+            </Link>
+            <ul className="submenu">
+              <li className="submenu-list-item">
+                <Link to="/dropdown#aboutus" className="submenu-anchor-item">
+                  About Us
                 </Link>
               </li>
-
-              <Switch>
-                <Route exact path="/">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-                <Route path="#about">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-                <Route path="#services">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-                <Route path="#frequentlyQuestions">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-                <Route exact path="/dropdown">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-                <Route path="#contact">
-                  <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
-                </Route>
-              </Switch>
+              <li className="submenu-list-item">
+                <Link to="/dropdown#features" className="submenu-anchor-item">
+                  Features
+                </Link>
+              </li>
+              <li className="submenu-list-item">
+                <Link to="/dropdown#faq" className="submenu-anchor-item">
+                  FAQ's
+                </Link>
+              </li>
+              <li className="submenu-list-item">
+                <Link to="/dropdown#blog" className="submenu-anchor-item">
+                  Blog
+                </Link>
+              </li>
             </ul>
-          </Router>
+          </li>
 
-          {/*menu end*/}
-        </nav>
-      </header>
-    </div>
+          <li>
+            <Link to="/#contact" className="menu-items">
+              Contact Us
+            </Link>
+          </li>
+
+          <Switch>
+            <Route exact path="/">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+            <Route path="#about">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+            <Route path="#services">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+            <Route path="#frequentlyQuestions">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+            <Route exact path="/dropdown">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+            <Route path="#contact">
+              <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
+            </Route>
+          </Switch>
+        </ul>
+      </Router>
+
+      {/*menu end*/}
+    </nav>
   );
 }
 
