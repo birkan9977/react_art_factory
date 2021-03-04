@@ -47,16 +47,12 @@ function App() {
           <BannerArea />
         </header>
       </div>
-      <div className="app-container">
+      <main>
         <About />
-      </div>
-      <hr className="hr-line"></hr>
-      <div className="app-container">
+        <hr className="hr-line"></hr>
         <About2 />
-      </div>
-
-      <Services />
-      
+        <Services />
+      </main>
     </div>
   );
 }

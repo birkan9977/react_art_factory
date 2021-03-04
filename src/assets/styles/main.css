@@ -650,7 +650,8 @@ body {
 .rec-carousel-item {
   z-index: 10;
 }
-.rec-carousel-item:hover .button, .rec-carousel-item :hover .icon {
+.rec-carousel-item:hover .button,
+.rec-carousel-item :hover .icon {
   background-color: #0088e8;
 }
 
