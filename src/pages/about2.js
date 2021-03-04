@@ -39,8 +39,11 @@ export default function About2() {
               <div className="list-text">
                 <h6>Sed placerat sollicitudin mauris</h6>
                 <p>
-                  If you have any question or comment, please <a rel="nofollow" href="https://templatemo.com/contact">contact</a> us on
-                  TemplateMo.
+                  If you have any question or comment, please{" "}
+                  <a rel="nofollow" href="https://templatemo.com/contact">
+                    contact
+                  </a>{" "}
+                  us on TemplateMo.
                 </p>
               </div>
             </li>
@@ -48,11 +51,7 @@ export default function About2() {
         </div>
 
         <div id="about2-right">
-          <img
-            id="about2-right-image"
-            src={rightImage}
-            alt=""
-          ></img>
+          <img id="about2-right-image" src={rightImage} alt=""></img>
         </div>
       </section>
     </div>

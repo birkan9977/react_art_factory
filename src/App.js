@@ -7,6 +7,7 @@ import { useScrollPosition } from "./components/scrollposition";
 import { useState, useEffect } from "react";
 import About from "./pages/about";
 import About2 from "./pages/about2";
+import Services from "./pages/services";
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -45,10 +46,16 @@ function App() {
           <Navbar show={showStickyHeader} />
           <BannerArea />
         </header>
+      </div>
+      <div className="app-container">
         <About />
-        <hr className="hr-line"></hr>
+      </div>
+      <hr className="hr-line"></hr>
+      <div className="app-container">
         <About2 />
       </div>
+
+      <Services />
       
     </div>
   );

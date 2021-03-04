@@ -14,7 +14,8 @@ $banner-header-area-left-position: 20vw;
 $button-hover-color: #0088e8;
 $section-color-black: #1e1e1e;
 $black-tone: hsl(0, 0%, 30%);
-
+$back-green: #00b4c6;
+$box-height: 35.5rem;
 //mixins
 @mixin inside_navbar {
   //transform: translateY(-2.6em);
@@ -30,12 +31,12 @@ $black-tone: hsl(0, 0%, 30%);
 }
 
 @mixin anchor-tag-section {
-    text-decoration: none;
-    color: hsl(211, 100%, 50%);
-    cursor: pointer;
-    &:hover {
-      color: hsl(211, 100%, 35%);
-    }
+  text-decoration: none;
+  color: hsl(211, 100%, 50%);
+  cursor: pointer;
+  &:hover {
+    color: hsl(211, 100%, 35%);
+  }
 }
 
 /* 
@@ -451,13 +452,15 @@ body {
   color: $main-white;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
   font-weight: 300;
   height: 4.5rem;
-  width: 15rem;
+  padding: 0 2rem;
+  //width: 15rem;
   margin-top: 3rem;
   border: none;
-  border-radius: 5rem;
+  border-radius: 2rem;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 }
@@ -470,9 +473,9 @@ body {
 }
 
 .button-green {
-  background-color: #00b4c6;
+  background-color: $back-green;
   &:hover {
-    background-color: #0088e8;
+    background-color: $button-hover-color;
   }
 }
 
@@ -522,9 +525,8 @@ body {
 
 .hr-line {
   position: relative;
-  width:200vw;
-  left: -100vw;
-  top: 7vh;
+  top: 8vh;
+  width: 100%;
   color: hsl(0, 0, 99%);
   border-top: 1px solid hsl(0, 0, 92%);
 }
@@ -607,7 +609,7 @@ body {
     }
     .list-text {
       width: 80%;
-      margin-left:2rem;
+      margin-left: 2rem;
     }
   }
 
@@ -646,6 +648,206 @@ body {
 
 #about2-right-image {
   position: relative;
-  left:1rem;
-  top:6rem;
+  left: 1rem;
+  top: 6rem;
 }
+
+//service
+#services {
+  padding-top:13rem;
+  margin: 12.5rem 0;
+  width: 100%;
+  height: 72rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 136, 232, 1) 0%,
+    rgba(0, 182, 198, 1) 0%,
+    rgba(0, 136, 232, 1) 100%
+  );
+}
+.service-box {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $main-white;
+  //box-shadow: 20px 4px 4px 80px rgba(0, 0, 0, 0.1);
+  //margin-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  width: 28rem;
+  height: $box-height;
+
+  .icon {
+    transition: all 0.3s ease;
+    background-color: $back-green;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+    margin-bottom: 3rem;
+    line-height: 1rem;
+  }
+
+  img {
+    max-width: 5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  h5 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: $section-color-black;
+    letter-spacing: 0.07rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.3rem;
+    color: #777;
+    letter-spacing: 0.05rem;
+    line-height: 2.5rem;
+  }
+}
+
+.carousel-container {
+  max-width: 140rem;
+  display: block;
+  margin: auto;
+}
+
+.rec {
+  //box-sizing: border-box;
+  margin-top: 0;
+  padding:0;
+  //background-color: rgba(57, 57, 196, 0.3);
+}
+
+.rec-carousel-item {
+  
+  //background-color: $main-red;
+  //box-sizing: content-box;
+  &:hover .button,:hover .icon {
+    background-color: $button-hover-color;
+  }
+  z-index:10;
+}
+
+
+
+.rec-slider{
+  //background-color: rgb(37, 165, 112);
+  &:after{
+    content:"";
+    position: absolute;
+    bottom:0;
+    left:30rem;
+    z-index:1;
+    width: 60rem;
+    height: 100%;
+    background-color: rgba($main-black,0.1);
+  }
+}
+
+.rec-slider-container{
+  //background-color: rgba($main-black, 0.1);
+  margin:0;
+}
+.rec-carousel-wrapper {
+  //background-color: rgb(2, 10, 2);
+  margin:0;
+}
+.rec-carousel {
+  //background-color: rgb(228, 58, 151);
+  margin:0;
+}
+
+.rec.rec-arrow {
+  box-sizing: content-box;
+  background-color: rgba(223, 223, 231, 0.3);
+  color: transparent;
+  position: relative;
+  left: -5px;
+  font-size: 2rem;
+  font-weight: 500;
+  width: 3.5em;
+  height: 3em;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  &:not(.dsbl):hover {
+    background-color: rgba(223, 223, 231, 0.3);
+    color: transparent;
+    box-shadow: none;
+  }
+}
+
+.rec-arrow-left {
+  &:after {
+    font-family: FontAwesome;
+    content: "\f104";
+    font-size: 2rem;
+    position: relative;
+    left: -5px;
+    color: white;
+  }
+  margin-left: 5rem;
+  margin-right: -1rem;
+}
+
+.rec-arrow-right {
+  &:after {
+    font-family: FontAwesome;
+    content: "\f105";
+    font-size: 2rem;
+    font-weight: 500;
+    position: relative;
+    left: -4px;
+    color: white;
+  }
+  margin-right: 5rem;
+}
+
+.rec.rec-dot {
+  margin-top: 2rem;
+  background-color: $main-white;
+  box-shadow: none;
+}
+
+.dot-carousel-flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  //background-color: rgba(223, 205, 205,0.2);
+  //width:100px;
+  height:auto;
+}
+
+.dot-carousel-button {
+  background-color: $main-white;
+  margin: 5px;
+  border-radius: 50%;
+  border:none;
+  cursor: pointer;
+}
+
+.carousel-button-active {
+  width:8px;
+  height:8px;
+}
+.carousel-button-passive {
+  width:6px;
+  height:6px;
+}
+
