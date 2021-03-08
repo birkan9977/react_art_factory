@@ -103,8 +103,7 @@ export default function CustomizedAccordions() {
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          
-            <div className="accordion-details">
+          <div className="accordion-details">
             <p>
               Duis vulputate porttitor urna sit amet pretium. Phasellus sed
               pulvinar eros, condimentum consequat ex. Suspendisse potenti.
@@ -113,8 +112,7 @@ export default function CustomizedAccordions() {
               Pellentesque maximus lorem sed elit imperdiet mattis. Duis posuere
               mauris ut eros rutrum sodales. Aliquam erat volutpat.
             </p>
-            </div>
-          
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -131,12 +129,16 @@ export default function CustomizedAccordions() {
         <AccordionDetails>
           <div className="accordion-details">
             <p>
-              Sed odio elit, cursus sed consequat at, rutrum eget augue. Cras ac eros iaculis, tempor quam sit amet, scelerisque mi. Quisque eu risus eget nunc porttitor vestibulum at a ante.
+              Sed odio elit, cursus sed consequat at, rutrum eget augue. Cras ac
+              eros iaculis, tempor quam sit amet, scelerisque mi. Quisque eu
+              risus eget nunc porttitor vestibulum at a ante.
             </p>
             <p>
-              Praesent ut placerat turpis, vel pellentesque dolor. Sed rutrum eleifend tortor, eu luctus orci sagittis in. In blandit fringilla mollis.
+              Praesent ut placerat turpis, vel pellentesque dolor. Sed rutrum
+              eleifend tortor, eu luctus orci sagittis in. In blandit fringilla
+              mollis.
             </p>
-            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -153,12 +155,16 @@ export default function CustomizedAccordions() {
         <AccordionDetails>
           <div className="accordion-details">
             <p>
-              Proin feugiat ante ut vulputate rutrum. Nam quis erat turpis. Nullam maximus pharetra lorem, eu condimentum est iaculis ut. Pellentesque mattis ultrices dignissim.
+              Proin feugiat ante ut vulputate rutrum. Nam quis erat turpis.
+              Nullam maximus pharetra lorem, eu condimentum est iaculis ut.
+              Pellentesque mattis ultrices dignissim.
             </p>
             <p>
-              Etiam et enim finibus, feugiat massa efficitur, finibus sapien. Sed cursus lacus quis arcu scelerisque, eget ornare risus maximus. Aenean non lectus id odio rhoncus pharetra.
+              Etiam et enim finibus, feugiat massa efficitur, finibus sapien.
+              Sed cursus lacus quis arcu scelerisque, eget ornare risus maximus.
+              Aenean non lectus id odio rhoncus pharetra.
             </p>
-            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -175,12 +181,15 @@ export default function CustomizedAccordions() {
         <AccordionDetails>
           <div className="accordion-details">
             <p>
-              Phasellus eu purus ornare, eleifend orci nec, egestas nulla. Sed sed aliquet sapien. Proin placerat, ipsum eu posuere blandit, tellus quam consectetur nisi, id sollicitudin diam ex at nisi.
+              Phasellus eu purus ornare, eleifend orci nec, egestas nulla. Sed
+              sed aliquet sapien. Proin placerat, ipsum eu posuere blandit,
+              tellus quam consectetur nisi, id sollicitudin diam ex at nisi.
             </p>
             <p>
-              Aenean fermentum eget turpis egestas semper. Sed finibus mollis venenatis. Praesent at sem in massa iaculis pharetra.
+              Aenean fermentum eget turpis egestas semper. Sed finibus mollis
+              venenatis. Praesent at sem in massa iaculis pharetra.
             </p>
-            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -197,12 +206,15 @@ export default function CustomizedAccordions() {
         <AccordionDetails>
           <div className="accordion-details">
             <p>
-              Quisque aliquet ipsum ut magna rhoncus, euismod lacinia elit rhoncus. Sed sapien elit, mollis ut ultricies quis, fermentum nec ante.
+              Quisque aliquet ipsum ut magna rhoncus, euismod lacinia elit
+              rhoncus. Sed sapien elit, mollis ut ultricies quis, fermentum nec
+              ante.
             </p>
             <p>
-              Sed nec ex nec tortor fermentum sollicitudin id ut ligula. Ut sagittis rutrum lectus, non sagittis ante euismod eu.
+              Sed nec ex nec tortor fermentum sollicitudin id ut ligula. Ut
+              sagittis rutrum lectus, non sagittis ante euismod eu.
             </p>
-            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -218,8 +230,12 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <div className="accordion-details">
-            <p>Suspendisse potenti. Ut dapibus leo ut massa vulputate semper. Pellentesque maximus lorem sed elit imperdiet mattis. Duis posuere mauris ut eros rutrum sodales. Aliquam erat volutpat.</p>
-            </div>
+            <p>
+              Suspendisse potenti. Ut dapibus leo ut massa vulputate semper.
+              Pellentesque maximus lorem sed elit imperdiet mattis. Duis posuere
+              mauris ut eros rutrum sodales. Aliquam erat volutpat.
+            </p>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>

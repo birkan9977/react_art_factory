@@ -926,7 +926,7 @@ body {
 
 .faq-left-col {
   padding: 2rem;
-  width: 50%;
+  width: 53%;
 }
 
 .faq-left-col-header h5 {
@@ -939,30 +939,33 @@ body {
 }
 
 .faq-left-col-text {
-  p{
+  p {
     margin-bottom: 3rem;
-  font-size: 1.6rem;
-  line-height: 30px;
-  letter-spacing: 0.05rem;
-  font-weight: 300;
+    font-size: 1.56rem;
+    line-height: 30px;
+    letter-spacing: 0.05rem;
+    font-weight: 300;
   }
-  .button-green{
-    margin-top:1rem;
+  .button-green {
+    margin-top: 1rem;
   }
-  
 }
 .faq-right-col {
   width: 50%;
 }
 
 .accordion {
-  width: 80%;
+  width: 100%;
+  position: relative;
+  top: 1.5rem;
 }
+
 .accordion-head {
   font-size: 1.85rem;
   cursor: pointer;
   font-weight: 300;
   letter-spacing: 0.05rem;
+  color: hsl(0, 0, 10%);
 }
 
 .accordion-arrow {
@@ -987,10 +990,9 @@ body {
   color: $button-hover-color;
 }
 
-
 .accordion-details {
   //padding:0.2rem;
-  p{
+  p {
     padding: 0 1rem;
     font-size: 1.4rem;
     letter-spacing: 0.04rem;
