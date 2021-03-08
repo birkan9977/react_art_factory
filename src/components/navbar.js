@@ -18,13 +18,13 @@ export default function Navbar(props) {
     }
   }, [props.show]);
 
-  const [currentLocation, setCurrentLocation] = useState("");
+  //const [currentLocation, setCurrentLocation] = useState("");
   const [currentWindowLocation, setCurrentWindowLocation] = useState(
     window.location.href
   );
 
   function handleCurrentLocation(e) {
-    setCurrentLocation(e);
+    //setCurrentLocation(e);
     setCurrentWindowLocation(window.location.href);
   }
 
@@ -84,6 +84,11 @@ export default function Navbar(props) {
 
       case "Services":
         window.scroll(0, element.offsetTop);
+        //console.log(element.offsetTop);
+        break;
+
+      case "Frequently Questions":
+        window.scroll(0, element.offsetTop - 90);
         console.log(element.offsetTop);
         break;
 

@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("../css/font-awesome.css");
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 $test-background-color: false;
 
 /* Custom properties/variables  */
@@ -129,6 +129,10 @@ h6 {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+p {
+  @include paragraph-style;
 }
 
 html {
@@ -445,6 +449,7 @@ body {
     line-height: 1.72;
     letter-spacing: 0.025rem;
     margin-bottom: 0.4rem;
+    color: $main-white;
   }
 }
 
@@ -520,6 +525,7 @@ body {
 .section-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: if($test-background-color, lightblue, null);
 }
 
@@ -655,7 +661,7 @@ body {
 //service
 #services {
   padding-top: 13rem;
-  margin: 12.5rem 0;
+  margin-top: 12.5rem 0;
   width: 100%;
   height: 72rem;
   background: linear-gradient(
@@ -666,22 +672,25 @@ body {
   );
 }
 .service-box {
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  //justify-content: space-around;
   background-color: $main-white;
   //box-shadow: 20px 4px 4px 80px rgba(0, 0, 0, 0.1);
   //margin-top: 2rem;
+  padding-top: 2rem;
   padding-left: 4rem;
   padding-right: 4rem;
   padding-bottom: 5rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  position: relative;
-  width: 28rem;
-  height: $box-height;
+  //position: relative;
+  width: 40rem;
+  //height: $box-height;
+  height: 40rem;
 
   .icon {
     transition: all 0.3s ease;
@@ -689,18 +698,26 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: auto;
-    position: relative;
-    margin-bottom: 3rem;
+    //margin: auto;
+    //position: relative;
+    //margin-bottom: 3rem;
+    margin-top: 2rem;
     line-height: 1rem;
+    max-width: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   img {
     max-width: 5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+    //position: relative;
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(10%, 50%);
   }
 
   h5 {
@@ -709,6 +726,7 @@ body {
     color: $section-color-black;
     letter-spacing: 0.07rem;
     margin-bottom: 1.5rem;
+    margin-top: 2rem;
     position: relative;
   }
 
@@ -752,7 +770,7 @@ body {
     bottom: 0;
     left: 30rem;
     z-index: 1;
-    width: 60rem;
+    width: 90%;
     height: 100%;
     background-color: rgba($main-black, 0.1);
   }
@@ -828,23 +846,153 @@ body {
   justify-content: center;
   margin-top: 6rem;
   //background-color: rgba(223, 205, 205,0.2);
-  //width:100px;
+  width: 100px;
   height: auto;
 }
 
 .dot-carousel-button {
-  background-color: $main-white;
-  margin: 5px;
-  border-radius: 50%;
+  background-color: transparent;
+  margin: 0.1;
   border: none;
   cursor: pointer;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
-.carousel-button-active {
+.inside-dot {
+  width: 8px;
+  height: 8px;
+  background-color: $main-white;
+  z-index: 10;
+  border-radius: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-dot-active {
   width: 8px;
   height: 8px;
 }
-.carousel-button-passive {
-  width: 6px;
-  height: 6px;
+.carousel-dot-passive {
+  width: 5px;
+  height: 5px;
+}
+
+//frequently questions
+.frequently-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 90rem;
+  align-items: center;
+  margin: 1rem;
+  padding-top: 11rem;
+  padding-bottom: 12rem;
+  background-color: if($test-background-color, burlywood, null);
+
+  a {
+    @include anchor-tag-section;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.faq-section-heading h2 {
+  text-align: center;
+  font-size: 4.8rem;
+  font-weight: 300;
+  color: #232323;
+  margin-bottom: 2rem;
+}
+
+.faq-section-paragraph {
+  width: 55rem;
+
+  p {
+    font-size: 1.7rem;
+    color: #777;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 7rem;
+  }
+}
+
+.faq-double-col-container {
+  display: flex;
+}
+
+.faq-left-col {
+  padding: 2rem;
+  width: 50%;
+}
+
+.faq-left-col-header h5 {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: #1e1e1e;
+  line-height: 40px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.faq-left-col-text {
+  p{
+    margin-bottom: 3rem;
+  font-size: 1.6rem;
+  line-height: 30px;
+  letter-spacing: 0.05rem;
+  font-weight: 300;
+  }
+  .button-green{
+    margin-top:1rem;
+  }
+  
+}
+.faq-right-col {
+  width: 50%;
+}
+
+.accordion {
+  width: 80%;
+}
+.accordion-head {
+  font-size: 1.85rem;
+  cursor: pointer;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.accordion-arrow {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  transition: all 300ms ease-in-out;
+  &:after {
+    font-family: FontAwesome;
+    content: "\f105";
+    font-size: 2.8rem;
+    font-weight: bold;
+  }
+}
+
+.accordion-arrow-expanded {
+  color: $button-hover-color;
+  transform: rotate(90deg);
+}
+
+.accordion-header-expanded {
+  color: $button-hover-color;
+}
+
+
+.accordion-details {
+  //padding:0.2rem;
+  p{
+    padding: 0 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.04rem;
+  }
 }

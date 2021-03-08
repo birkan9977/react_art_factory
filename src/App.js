@@ -8,8 +8,9 @@ import { useState, useEffect } from "react";
 import About from "./pages/about";
 import About2 from "./pages/about2";
 import Services from "./pages/services";
+import FrequentlyQuestions from "./pages/frequently";
 
-function App() {
+const App = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const [animateLeftPicture, setAnimateLeftPicture] = useState(false);
 
@@ -52,9 +53,10 @@ function App() {
         <hr className="hr-line"></hr>
         <About2 />
         <Services />
+        <FrequentlyQuestions />
       </main>
     </div>
   );
-}
+};
 
 export default App;

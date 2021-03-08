@@ -22,7 +22,7 @@ export default function Services() {
                 {pages.map((page) => {
                   const isActivePage = activePage === page;
                   return (
-                    <Square
+                    <DotCarousel
                       key={page}
                       onClick={() => onClick(page)}
                       active={isActivePage}
@@ -144,14 +144,14 @@ export default function Services() {
   );
 }
 
-function Square(props) {
-  let cls = "dot-carousel-button ";
-  if (props.active) {
-    cls += "carousel-button-active";
-  } else {
-    cls += "carousel-button-passive";
-  }
-  //console.log(cls)
+function DotCarousel(props) {
+  const classBackFrame = props.active
+    ? "inside-dot carousel-dot-active"
+    : "inside-dot carousel-dot-passive";
 
-  return <button className={cls} onClick={props.onClick}></button>;
+  return (
+    <div className="dot-carousel-button" onClick={props.onClick}>
+      <div className={classBackFrame}></div>
+    </div>
+  );
 }
