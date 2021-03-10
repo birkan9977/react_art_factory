@@ -69,9 +69,11 @@ export default function Navbar(props) {
   }, [currentWindowLocation]);
 
   const handleClick = (e) => {
-    console.log(e.target.innerHTML);
+    //console.log(e.target);
     const clickedItem = e.target.innerHTML;
-    const element = document.getElementById(clickedItem.toLowerCase());
+    const regex = /\b\s\b/;
+    const idCorrectedItem = clickedItem.replace(regex, "_").toLowerCase();
+    const element = document.getElementById(idCorrectedItem);
 
     switch (clickedItem) {
       case "Home":
@@ -89,7 +91,12 @@ export default function Navbar(props) {
 
       case "Frequently Questions":
         window.scroll(0, element.offsetTop - 90);
-        console.log(element.offsetTop);
+        //console.log(element.offsetTop);
+        break;
+
+      case "Contact Us":
+        window.scroll(0, element.offsetTop - 80);
+        //console.log(element.offsetTop);
         break;
 
       default:
@@ -162,7 +169,7 @@ export default function Navbar(props) {
           </li>
 
           <li>
-            <Link to="/#contact" className="menu-items">
+            <Link to="/#contact" className="menu-items" onClick={handleClick}>
               Contact Us
             </Link>
           </li>

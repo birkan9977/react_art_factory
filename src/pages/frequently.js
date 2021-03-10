@@ -2,12 +2,12 @@ import Button from "../components/button";
 import CustomizedAccordions from "../components/accordion";
 const FrequentlyQuestions = () => {
   const handleClick = () => {
-    const element = document.getElementById("about2");
-    window.scroll(0, element.offsetTop - 200);
+    const element = document.getElementById("contact_us");
+    window.scroll(0, element.offsetTop - 80);
   };
   return (
     <div className="app-container">
-      <section id="frequently questions" className="frequently-questions">
+      <section id="frequently_questions" className="frequently-questions">
         <div className="faq-section-heading">
           <h2>Frequently Asked Questions</h2>
         </div>
@@ -44,7 +44,7 @@ const FrequentlyQuestions = () => {
                 </p>
               </div>
               <Button
-                buttonContent="Discover More"
+                buttonContent="Contact Us"
                 class="button-green"
                 handleClick={handleClick}
               />

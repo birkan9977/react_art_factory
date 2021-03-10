@@ -9,6 +9,8 @@ import About from "./pages/about";
 import About2 from "./pages/about2";
 import Services from "./pages/services";
 import FrequentlyQuestions from "./pages/frequently";
+import ContactUs from "./pages/contact_us";
+import Footer from "./pages/footer";
 
 const App = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -54,7 +56,11 @@ const App = () => {
         <About2 />
         <Services />
         <FrequentlyQuestions />
+        <ContactUs />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
