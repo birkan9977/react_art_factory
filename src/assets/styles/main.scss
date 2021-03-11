@@ -1,4 +1,3 @@
-//@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("../css/font-awesome.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 $test-background-color: false;
@@ -150,7 +149,6 @@ html {
   */
   font-size: 62.5%;
   scroll-behavior: smooth;
-  //height: $main-height;
 }
 
 /* 
@@ -257,9 +255,7 @@ body {
   justify-content: space-between;
   z-index: 99;
   width: 100%;
-  //left: $navbar-left-position;
   @include inside_navbar;
-  //transition: all 0.3s ease 0s;
   background-color: if($test-background-color, brown, null);
 }
 
@@ -468,7 +464,6 @@ body {
   font-weight: 300;
   height: 4.5rem;
   padding: 0 2rem;
-  //width: 15rem;
   margin-top: 3rem;
   border: none;
   border-radius: 2rem;
@@ -682,10 +677,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: space-around;
   background-color: $main-white;
-  //box-shadow: 20px 4px 4px 80px rgba(0, 0, 0, 0.1);
-  //margin-top: 2rem;
   padding-top: 2rem;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -693,9 +685,7 @@ body {
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  //position: relative;
   width: 40rem;
-  //height: $box-height;
   height: 40rem;
 
   .icon {
@@ -704,9 +694,6 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    //margin: auto;
-    //position: relative;
-    //margin-bottom: 3rem;
     margin-top: 2rem;
     line-height: 1rem;
     max-width: 100%;
@@ -719,11 +706,6 @@ body {
 
   img {
     max-width: 5rem;
-
-    //position: relative;
-    //top: 50%;
-    //left: 50%;
-    //transform: translate(10%, 50%);
   }
 
   h5 {
@@ -752,15 +734,11 @@ body {
 }
 
 .rec {
-  //box-sizing: border-box;
   margin-top: 0;
   padding: 0;
-  //background-color: rgba(57, 57, 196, 0.3);
 }
 
 .rec-carousel-item {
-  //background-color: $main-red;
-  //box-sizing: content-box;
   &:hover .button,
   :hover .icon {
     background-color: $button-hover-color;
@@ -769,7 +747,6 @@ body {
 }
 
 .rec-slider {
-  //background-color: rgb(37, 165, 112);
   &:after {
     content: "";
     position: absolute;
@@ -783,15 +760,12 @@ body {
 }
 
 .rec-slider-container {
-  //background-color: rgba($main-black, 0.1);
   margin: 0;
 }
 .rec-carousel-wrapper {
-  //background-color: rgb(2, 10, 2);
   margin: 0;
 }
 .rec-carousel {
-  //background-color: rgb(228, 58, 151);
   margin: 0;
 }
 
@@ -851,7 +825,6 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 6rem;
-  //background-color: rgba(223, 205, 205,0.2);
   width: 100px;
   height: auto;
 }
@@ -916,7 +889,7 @@ body {
   width: 55rem;
 
   p {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     color: #777;
     text-align: center;
     font-weight: 300;
@@ -995,11 +968,17 @@ body {
 }
 
 .accordion-details {
-  //padding:0.2rem;
   p {
-    padding: 0 1rem;
+    padding: 1rem;
     font-size: 1.4rem;
     letter-spacing: 0.04rem;
+  }
+
+  :first-child {
+    padding-top: 0;
+  }
+  :last-child {
+    padding-bottom: 0;
   }
 }
 
@@ -1134,7 +1113,6 @@ footer {
     height: 4rem;
     width: 4rem;
     font-size: 1.6rem;
-    //padding: 1.1rem 1.6rem;
     margin: 0;
   }
 

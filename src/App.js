@@ -7,8 +7,10 @@ import { useScrollPosition } from "./components/scrollposition";
 import { useState, useEffect } from "react";
 import About from "./pages/about";
 import About2 from "./pages/about2";
+//"about 2" links to the second part of the about page below with "discover more" button
+
 import Services from "./pages/services";
-import FrequentlyQuestions from "./pages/frequently";
+import FrequentlyQuestions from "./pages/faq";
 import ContactUs from "./pages/contact_us";
 import Footer from "./pages/footer";
 
@@ -18,6 +20,7 @@ const App = () => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      //-400 is where the fixed navbar appears on top of the page
       const isShow = currPos.y < -400;
       //console.log(currPos.y, prevPos.y);
       if (isShow !== showStickyHeader) {

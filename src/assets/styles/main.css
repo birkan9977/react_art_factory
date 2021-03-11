@@ -814,7 +814,7 @@ body {
   width: 55rem;
 }
 .faq-section-paragraph p {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #777;
   text-align: center;
   font-weight: 300;
@@ -891,9 +891,15 @@ body {
 }
 
 .accordion-details p {
-  padding: 0 1rem;
+  padding: 1rem;
   font-size: 1.4rem;
   letter-spacing: 0.04rem;
+}
+.accordion-details :first-child {
+  padding-top: 0;
+}
+.accordion-details :last-child {
+  padding-bottom: 0;
 }
 
 .contact-us {
