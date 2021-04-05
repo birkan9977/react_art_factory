@@ -32,15 +32,18 @@ export default function Services() {
             );
           }}
         >
-          {ServicesData.map((serviceItem) => {
+          {ServicesData.map((serviceItem, divindex) => {
+            const divkey = `divindex-${divindex}`;
+
             return (
-              <div className="service-box">
+              <div className="service-box" key={divkey}>
                 <div className="icon">
                   <img src={serviceItem.icon} alt=""></img>
                 </div>
                 <h5>{serviceItem.header}</h5>
-                {serviceItem.body.map((paragraph) => {
-                  return <p>{paragraph}</p>;
+                {serviceItem.body.map((paragraph, paraindex) => {
+                  const paragraphkey = `paragraphindex-${paraindex}`;
+                  return <p key={paragraphkey}>{paragraph}</p>;
                 })}
 
                 <Button

@@ -436,6 +436,11 @@ body {
   line-height: 1.5;
   margin-right: 6rem;
   width: 50%;
+  transition: all 1s ease;
+  transform: translateX(-5rem);
+  opacity: 0;
+
+  //animation: leftimage 2s 1.5s forwards;
 
   h1 {
     font-size: 6rem;
@@ -455,6 +460,12 @@ body {
   }
 }
 
+.left-transition {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
 .button {
   color: $main-white;
   text-transform: uppercase;
@@ -462,7 +473,7 @@ body {
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
   font-weight: 300;
-  height: 4.5rem;
+  height: 4.1rem;
   padding: 0 2rem;
   margin-top: 3rem;
   border: none;
@@ -490,6 +501,14 @@ body {
   position: relative;
   left: -5rem;
   width: 50%;
+  transition: all 1s ease;
+  transform: translateX(5rem);
+  opacity: 0;
+}
+
+.right-transition {
+  transform:translateX(0);
+  opacity:1;
 }
 
 #img-slider {
@@ -662,7 +681,7 @@ body {
 //service
 #services {
   padding-top: 13rem;
-  margin-top: 12.5rem 0;
+  margin-top: 12.5rem;
   width: 100%;
   height: 72rem;
   background: linear-gradient(
@@ -673,20 +692,13 @@ body {
   );
 }
 .service-box {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-sizing: content-box;
   background-color: $main-white;
-  padding-top: 2rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-bottom: 5rem;
+  padding: 2rem 3rem 1.5rem 3rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  width: 40rem;
-  height: 40rem;
+  height: 36rem;
 
   .icon {
     transition: all 0.3s ease;
@@ -694,14 +706,13 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-top: 2rem;
     line-height: 1rem;
     max-width: 100%;
-    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 2rem auto;
   }
 
   img {
@@ -714,7 +725,7 @@ body {
     color: $section-color-black;
     letter-spacing: 0.07rem;
     margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     position: relative;
   }
 
@@ -831,7 +842,7 @@ body {
 
 .dot-carousel-button {
   background-color: transparent;
-  margin: 0.1;
+  margin: 0.1rem;
   border: none;
   cursor: pointer;
   width: 1.6rem;
@@ -1016,9 +1027,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  align-items: space-around;
+  align-items: stretch;
   justify-content: space-around;
-  width: 80%;
   background-color: if($test-background-color, violet, null);
   textarea {
     resize: none;
@@ -1032,7 +1042,7 @@ body {
 .form-first-row {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
+  align-items: center;
   width: 100%;
   height: 5rem;
   margin-bottom: 3rem;
@@ -1118,5 +1128,72 @@ footer {
 
   i {
     transform: translate(-50%, 60%);
+  }
+}
+
+//preloader
+.preload-visible {
+  display: block;
+}
+
+.preload-invisible {
+  display: none;
+}
+
+#preloader {
+  overflow: hidden;
+  background-image: linear-gradient(145deg, #00b4c6 0%, #0088e8 100%);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 9999;
+  color: #fff;
+}
+
+#preloader .jumper {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+}
+
+#preloader .jumper > div {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  animation: jumper 1s 0s linear infinite;
+}
+
+#preloader .jumper > div:nth-child(2) {
+  animation-delay: 0.33333s;
+}
+
+#preloader .jumper > div:nth-child(3) {
+  animation-delay: 0.66666s;
+}
+
+@keyframes jumper {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }

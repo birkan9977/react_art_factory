@@ -57,14 +57,14 @@ export default function CustomizedAccordions() {
   };
 
   useEffect(() => {
-    console.log(expanded);
+    //console.log(expanded);
     const arrowElementName = `acc-${expanded}-arrow`;
-    console.log(arrowElementName);
+    //console.log(arrowElementName);
     const arrowElement = document.getElementById(arrowElementName);
     arrowElement.classList.toggle("accordion-arrow-expanded");
 
     const headerElementName = `acc-${expanded}-header`;
-    console.log(headerElementName);
+    //console.log(headerElementName);
     const headerElement = document.getElementById(headerElementName);
     headerElement.classList.toggle("accordion-header-expanded");
 
@@ -76,8 +76,8 @@ export default function CustomizedAccordions() {
 
   return (
     <div className="accordion">
-      {AccordionData.map((currentItem, index) => {
-        const panelIndex = index + 1;
+      {AccordionData.map((currentItem, accordionIndex) => {
+        const panelIndex = accordionIndex + 1;
         const panelName = `panel${panelIndex}`;
         const ariaControls = `panel${panelIndex}d-content`;
         const accordionId = `panel${panelIndex}d-header`;
@@ -91,6 +91,7 @@ export default function CustomizedAccordions() {
             square
             expanded={expanded === panelName}
             onChange={handleChange(panelName)}
+            key={accordionIndex}
           >
             <AccordionSummary aria-controls={ariaControls} id={accordionId}>
               <div id={summaryDivId} className="accordion-head">
@@ -100,8 +101,8 @@ export default function CustomizedAccordions() {
             </AccordionSummary>
             <AccordionDetails>
               <div className="accordion-details">
-                {currentItem.body.map((currentParagraph) => {
-                  return <p>{currentParagraph}</p>;
+                {currentItem.body.map((currentParagraph, paragraphIndex) => {
+                  return <p key={paragraphIndex}>{currentParagraph}</p>;
                 })}
               </div>
             </AccordionDetails>

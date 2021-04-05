@@ -1,6 +1,5 @@
 import sliderimg from "../assets/images/slider-icon.png";
 import Button from "./button";
-
 export default function BannerArea() {
   const handleClick = () => {
     const element = document.getElementById("about");
@@ -9,7 +8,7 @@ export default function BannerArea() {
 
   return (
     <div className="banner-bottom-area">
-      <div className="left-column">
+      <div id="banner-left-col" className="left-column">
         <h1>
           Art Factory is free <strong>for YOU</strong>
         </h1>
@@ -24,7 +23,7 @@ export default function BannerArea() {
         />
       </div>
 
-      <div className="right-column">
+      <div id="banner-right-col" className="right-column">
         <img id="img-slider" src={sliderimg} alt="vector-graphic01"></img>
       </div>
     </div>

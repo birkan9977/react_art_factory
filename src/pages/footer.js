@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <div className="app-container footer-section">
       <div className="footer-left-text">
-        <p class="copyright">
+        <p className="copyright">
           Copyright &copy; 2020 Art Factory Company. Design:{" "}
           <a rel="nofollow" href="https://templatemo.com">
             TemplateMo
