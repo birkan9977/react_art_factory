@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="app-container footer-section">
+    <div className="container footer-section">
       <div className="footer-left-text">
         <p className="copyright">
           Copyright &copy; 2020 Art Factory Company. Design:{" "}

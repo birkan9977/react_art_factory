@@ -6,7 +6,7 @@ const FrequentlyQuestions = () => {
     window.scroll(0, element.offsetTop - 80);
   };
   return (
-    <div className="app-container">
+    <div className="container">
       <section id="frequently_questions" className="frequently-questions">
         <div className="faq-section-heading">
           <h2>Frequently Asked Questions</h2>

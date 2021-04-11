@@ -46,7 +46,7 @@ const App = () => {
         setAnimateLeftPicture(isAnimateLeft);
       }
 
-      const startTransition = currPos.y > -450;
+      const startTransition = currPos.y > -700;
 
       if (startTransition) {
         setTransition(startTransition);
@@ -64,6 +64,7 @@ const App = () => {
       let element = document.getElementById("left-img");
       element.classList.add("left-image-animate");
     }
+
     if (transition) {
       console.log("add transition");
       document
@@ -84,19 +85,19 @@ const App = () => {
   }, [animateLeftPicture, transition]);
   return (
     <div className="main-container">
-    
       <div id="preloader-container" className="preload-visible">
         <Preloader />
       </div>
+
       <StickyBack show={showStickyHeader} />
-      <div className="banner-backgroung-image"></div>
-      <div className="app-container">
-        <div className="dummy-container"></div>
-        <header>
-          <Navbar show={showStickyHeader} />
-          <BannerArea />
-        </header>
-      </div>
+      <header>
+        <div className="banner">
+          <div className="container">
+            <Navbar show={showStickyHeader} />
+            <BannerArea />
+          </div>
+        </div>
+      </header>
       <main>
         <About />
         <hr className="hr-line"></hr>

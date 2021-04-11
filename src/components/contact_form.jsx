@@ -27,7 +27,6 @@ const ContactForm = () => {
           id="form-text-area"
           className="contact-field"
           name="message"
-          id="message"
           placeholder="Your Message"
           rows="6"
           required

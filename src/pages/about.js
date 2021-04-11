@@ -7,7 +7,7 @@ export default function About() {
     window.scroll(0, element.offsetTop - 200);
   };
   return (
-    <div className="app-container">
+    <div className="container">
       <div id="section-container">
         <section id="about">
           <div className="left-col">

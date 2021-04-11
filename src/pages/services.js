@@ -2,19 +2,26 @@ import Carousel from "react-elastic-carousel";
 import Button from "../components/button";
 import clsx from "clsx";
 import ServicesData from "../data/services-data";
+import { useMediaQuery } from "react-responsive";
+import { useEffect } from "react";
 
 export default function Services() {
   const handleClick = () => {
     const element = document.getElementById("about2");
     window.scroll(0, element.offsetTop - 200);
   };
+  const breakpointLg = useMediaQuery({ query: "(max-width: 992px)" });
+  const breakpointMd = useMediaQuery({ query: "(max-width: 768px)" });
 
+  const handlePadding = () => {};
+
+  useEffect(() => {});
   return (
     <div id="services">
       <div className="carousel-container">
         <Carousel
-          itemsToShow={3}
-          itemPadding={[0, 15]}
+          itemsToShow={breakpointLg ? 2 : 3}
+          itemPadding={breakpointLg ? [0, 40] : [0, 15]}
           renderPagination={({ pages, activePage, onClick }) => {
             return (
               <div className="dot-carousel-flex">
@@ -73,3 +80,5 @@ function DotCarousel(props) {
     </div>
   );
 }
+
+//

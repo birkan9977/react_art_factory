@@ -5,7 +5,7 @@ import rightImage from "../assets/images/right-image.png";
 
 export default function About2() {
   return (
-    <div className="app-container">
+    <div className="container">
       <div className="section-container">
         <section id="about2">
           <div id="about2-left">

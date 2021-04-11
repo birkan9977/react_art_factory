@@ -24,7 +24,11 @@ export default function BannerArea() {
       </div>
 
       <div id="banner-right-col" className="right-column">
-        <img id="img-slider" src={sliderimg} alt="vector-graphic01"></img>
+        <img
+          className="banner-image"
+          src={sliderimg}
+          alt="vector-graphic01"
+        ></img>
       </div>
     </div>
   );
