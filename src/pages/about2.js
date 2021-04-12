@@ -2,8 +2,9 @@ import aboutIcon01 from "../assets/images/about-icon-01.png";
 import aboutIcon02 from "../assets/images/about-icon-02.png";
 import aboutIcon03 from "../assets/images/about-icon-03.png";
 import rightImage from "../assets/images/right-image.png";
-
-export default function About2() {
+import clsx from "clsx";
+export default function About2({ animateAbout2Right }) {
+  //console.log('animateAbout2Right',animateAbout2Right)
   return (
     <div className="container">
       <div className="section-container">
@@ -52,7 +53,14 @@ export default function About2() {
           </div>
 
           <div id="about2-right">
-            <img id="about2-right-image" src={rightImage} alt=""></img>
+            <img
+              id="about2-right-image"
+              className={clsx("about2-image", {
+                "right-transition": animateAbout2Right,
+              })}
+              src={rightImage}
+              alt=""
+            ></img>
           </div>
         </section>
       </div>

@@ -1,17 +1,23 @@
 import leftImage from "../assets/images/left-image.png";
 import Button from "../components/button";
-
-export default function About() {
+import clsx from "clsx";
+export default function About({ animateAboutLeft }) {
   const handleClick = () => {
     const element = document.getElementById("about2");
     window.scroll(0, element.offsetTop - 200);
   };
+
   return (
     <div className="container">
       <div id="section-container">
         <section id="about">
           <div className="left-col">
-            <img id="left-img" src={leftImage} alt="vector-graphic02"></img>
+            <img
+              id="left-img"
+              className={clsx({ "left-image-animate": animateAboutLeft })}
+              src={leftImage}
+              alt="vector-graphic02"
+            ></img>
           </div>
           <div className="right-col">
             <h5>Vivamus sodales nisi id ante molestie venenatis</h5>

@@ -33,6 +33,7 @@ export default function Navbar({ show }) {
   useEffect(() => {
     //console.log(currentLocation);
     //console.log("currentWindowLocation", currentWindowLocation);
+    //console.log("test", window.location.href);
     const menuItems = document.getElementsByClassName("menu-items");
     //console.log(menuitems)
     let menuItemFound = false;

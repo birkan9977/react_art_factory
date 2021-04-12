@@ -10,18 +10,54 @@ export default function Services() {
     const element = document.getElementById("about2");
     window.scroll(0, element.offsetTop - 200);
   };
+  const breakpointXl = useMediaQuery({ query: "(max-width: 1200px)" });
   const breakpointLg = useMediaQuery({ query: "(max-width: 992px)" });
   const breakpointMd = useMediaQuery({ query: "(max-width: 768px)" });
+  const breakpointSm = useMediaQuery({ query: "(max-width: 576px)" });
 
-  const handlePadding = () => {};
+  const carouselProps = (function handleCarouselProps() {
+    let padding = [0, 15];
+    let itemsToShow = 3;
+    switch (true) {
+      case breakpointSm:
+        padding = [0, 10];
+        itemsToShow = 1;
+        break;
+      case breakpointMd:
+        padding = [0, 10];
+        itemsToShow = 2;
+        break;
+      case breakpointLg:
+        padding = [0, 5];
+        itemsToShow = 3;
+        break;
+      case breakpointXl:
+        padding = [0, 20];
+        itemsToShow = 3;
+        break;
+      default:
+        padding = [0, 10];
+        itemsToShow = 4;
+    }
+    return { padding, itemsToShow };
+  })();
 
-  useEffect(() => {});
+  useEffect(() => {
+    /*
+      console.log('breakpointXl',breakpointXl)
+      console.log('breakpointLg',breakpointLg)
+      console.log('breakpointMd',breakpointMd)
+      console.log('breakpointSm',breakpointSm)
+      console.log('carouselProps',carouselProps)
+      */
+  });
+
   return (
     <div id="services">
       <div className="carousel-container">
         <Carousel
-          itemsToShow={breakpointLg ? 2 : 3}
-          itemPadding={breakpointLg ? [0, 40] : [0, 15]}
+          itemsToShow={carouselProps.itemsToShow}
+          itemPadding={carouselProps.padding}
           renderPagination={({ pages, activePage, onClick }) => {
             return (
               <div className="dot-carousel-flex">
