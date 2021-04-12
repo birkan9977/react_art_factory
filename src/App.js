@@ -27,14 +27,14 @@ const App = () => {
   const ABOUT2_START = 800;
   const FIXED_NAVBAR_START = 400;
   const USE_WINDOW = true;
-  const WAIT = 200;
+  const WAIT = 100;
   let element = undefined;
 
   //display loader
   useEffect(() => {
     setTimeout(() => {
       const element = document.getElementById("preloader-container");
-      element.classList.remove("preload-visible");
+      //element.classList.remove("preload-visible");
       element.classList.add("preload-invisible");
       setDisplayLoader(false);
     }, 1000);
@@ -91,7 +91,7 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <div id="preloader-container" className="preload-visible">
+      <div id="preloader-container" className="preloader">
         <Preloader />
       </div>
 

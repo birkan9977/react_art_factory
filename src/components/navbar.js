@@ -19,31 +19,23 @@ export default function Navbar({ show }) {
     }
   }, [show]);
 
-  //const [currentLocation, setCurrentLocation] = useState("");
   const [currentWindowLocation, setCurrentWindowLocation] = useState(
     window.location.href
   );
   const [triggerActive, setTriggerActive] = useState(false);
   const [enlargeDropDown, setEnlargeDropDown] = useState(false);
   function handleCurrentLocation(e) {
-    //setCurrentLocation(e);
     setCurrentWindowLocation(window.location.href);
   }
 
   useEffect(() => {
-    //console.log(currentLocation);
-    //console.log("currentWindowLocation", currentWindowLocation);
-    //console.log("test", window.location.href);
     const menuItems = document.getElementsByClassName("menu-items");
-    //console.log(menuitems)
     let menuItemFound = false;
     for (const item of menuItems) {
-      //console.log('item.href',item.href)
       const found = currentWindowLocation === item.href;
 
       if (found) {
         menuItemFound = found;
-        //console.log(item.innerHTML, 'found')
         item.classList.add("active-page");
       } else {
         item.classList.remove("active-page");
@@ -58,10 +50,8 @@ export default function Navbar({ show }) {
       const dropDownMenuItem = document.getElementById("dropDownMenuItem");
       for (const subItem of subMenuItems) {
         const found = currentWindowLocation === subItem.href;
-        //console.log("subItem.href", subItem.href);
         if (found) {
           menuItemFound = found;
-          //console.log(subItem.innerHTML, "found");
           subItem.classList.add("sub-active-page");
           dropDownMenuItem.classList.add("active-page");
         } else {
@@ -86,22 +76,19 @@ export default function Navbar({ show }) {
         break;
 
       case "About":
-        window.scroll(0, element.offsetTop - 260);
+        window.scroll(0, element.offsetTop - 200);
         break;
 
       case "Services":
-        window.scroll(0, element.offsetTop);
-        //console.log(element.offsetTop);
+        window.scroll(0, element.offsetTop - 100);
         break;
 
       case "Frequently Questions":
         window.scroll(0, element.offsetTop - 90);
-        //console.log(element.offsetTop);
         break;
 
       case "Contact Us":
         window.scroll(0, element.offsetTop - 80);
-        //console.log(element.offsetTop);
         break;
 
       default:
