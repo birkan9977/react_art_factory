@@ -1,11 +1,13 @@
 import sliderimg from "../assets/images/slider-icon.png";
 import Button from "./button";
 import clsx from "clsx";
+import handleScroll from "../data/scroll-data";
 
-export default function BannerArea({ bannerTransition }) {
+export default function BannerArea({ bannerTransition, breakPoints }) {
   const handleClick = () => {
     const element = document.getElementById("about");
-    window.scroll(0, element.offsetTop - 200);
+    const scrollValue = handleScroll("about2", breakPoints);
+    window.scroll(0, element.offsetTop + scrollValue);
   };
 
   return (

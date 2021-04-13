@@ -10,7 +10,9 @@ import FrequentlyQuestions from "./pages/faq";
 import ContactUs from "./pages/contact_us";
 import Footer from "./pages/footer";
 import Preloader from "./components/preloader";
-
+import breakPointsData from "./data/breakpoints";
+import clsx from "clsx";
+import transitionFixedData from "./data/transition-data";
 const App = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const [displayLoader, setDisplayLoader] = useState(true);
@@ -19,38 +21,75 @@ const App = () => {
     animateAbout2Right: false,
     bannerTransition: false,
   });
+  const [transitionData, setTransitionData] = useState({});
   const [scrollReady, setScrollReady] = useState(false);
+  const [breakPoints, setBreakPoints] = useState({});
 
-  //scrollY anchor positions
-  const BANNER_END = 500;
-  const ABOUT_START = 200;
-  const ABOUT2_START = 800;
-  const FIXED_NAVBAR_START = 400;
   const USE_WINDOW = true;
   const WAIT = 100;
-  let element = undefined;
 
   //display loader
   useEffect(() => {
     setTimeout(() => {
-      const element = document.getElementById("preloader-container");
-      //element.classList.remove("preload-visible");
-      element.classList.add("preload-invisible");
       setDisplayLoader(false);
     }, 1000);
+    window.addEventListener("resize", handleSize);
+    handleSize();
+    return () => {
+      window.removeEventListener("resize", handleSize);
+    };
   }, []);
 
+  const handleSize = () => {
+    const newSize = breakPointsData(window.innerWidth);
+    Object.entries(newSize).map(([key, value]) => {
+      if (newSize[key] !== breakPoints[key]) {
+        return {
+          ...newSize,
+          [key]: value,
+        };
+      }
+      return newSize[key];
+    });
+    //console.log(newSize)
+    setBreakPoints(newSize);
+
+    const newTransitionData = transitionFixedData(newSize);
+
+    Object.entries(newTransitionData).map(([key, value]) => {
+      if (newTransitionData[key] !== transitionData[key]) {
+        return {
+          ...newTransitionData,
+          [key]: value,
+        };
+      }
+      return newTransitionData[key];
+    });
+    console.log(newTransitionData);
+    setTransitionData(newTransitionData);
+  };
+
+  useEffect(() => {
+    //console.log("breakPoints", breakPoints);
+  }, [breakPoints]);
+
+  const {
+    fixedNavBarStart,
+    bannerEnd,
+    aboutStart,
+    about2Start,
+  } = transitionData;
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const isShow = currPos.y > FIXED_NAVBAR_START;
+      const isShow = currPos.y > fixedNavBarStart;
       //console.log("currPos.y", currPos.y, prevPos.y);
       if (isShow !== showStickyHeader) {
         setShowStickyHeader(isShow);
       }
 
-      const isAnimateAboutSection = currPos.y > ABOUT_START;
-      const startBannerTransition = currPos.y < BANNER_END;
-      const startAbout2RightTransition = currPos.y > ABOUT2_START;
+      const isAnimateAboutSection = currPos.y > aboutStart;
+      const startBannerTransition = currPos.y < bannerEnd;
+      const startAbout2RightTransition = currPos.y > about2Start;
       if (scrollReady) {
         setTransitions({
           ...transitions,
@@ -60,27 +99,24 @@ const App = () => {
         });
       }
     },
-    [showStickyHeader],
-    element,
+    [showStickyHeader, transitions],
+    null,
     USE_WINDOW,
     WAIT
   );
-
-  useEffect(() => {
-    //console.log(transitions);
-  }, [transitions]);
 
   //works only once after loader is displayed
   useEffect(() => {
     if (!displayLoader) {
       setTransitions({
         ...transitions,
-        animateAboutLeft: window.scrollY > ABOUT_START,
-        animateAbout2Right: window.scrollY > ABOUT2_START,
-        bannerTransition: window.scrollY < BANNER_END,
+        animateAboutLeft: window.scrollY > aboutStart,
+        animateAbout2Right: window.scrollY > about2Start,
+        bannerTransition: window.scrollY < bannerEnd,
       });
       setScrollReady(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayLoader]);
 
   const {
@@ -91,7 +127,10 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <div id="preloader-container" className="preloader">
+      <div
+        id="preloader-container"
+        className={clsx("preloader", { "preload-invisible": !displayLoader })}
+      >
         <Preloader />
       </div>
 
@@ -99,16 +138,22 @@ const App = () => {
       <header>
         <div className="banner">
           <div className="container">
-            <Navbar show={showStickyHeader} />
-            <BannerArea bannerTransition={bannerTransition} />
+            <Navbar
+              showStickyHeader={showStickyHeader}
+              breakPoints={breakPoints}
+            />
+            <BannerArea
+              bannerTransition={bannerTransition}
+              breakPoints={breakPoints}
+            />
           </div>
         </div>
       </header>
       <main>
-        <About animateAboutLeft={animateAboutLeft} />
+        <About animateAboutLeft={animateAboutLeft} breakPoints={breakPoints} />
         <hr className="hr-line"></hr>
         <About2 animateAbout2Right={animateAbout2Right} />
-        <Services />
+        <Services breakPoints={breakPoints} />
         <FrequentlyQuestions />
         <ContactUs />
       </main>

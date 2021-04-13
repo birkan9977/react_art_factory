@@ -1,10 +1,13 @@
 import leftImage from "../assets/images/left-image.png";
 import Button from "../components/button";
 import clsx from "clsx";
-export default function About({ animateAboutLeft }) {
+import handleScroll from "../data/scroll-data";
+
+export default function About({ animateAboutLeft, breakPoints }) {
   const handleClick = () => {
     const element = document.getElementById("about2");
-    window.scroll(0, element.offsetTop - 200);
+    const scrollValue = handleScroll("about2", breakPoints);
+    window.scroll(0, element.offsetTop + scrollValue);
   };
 
   return (

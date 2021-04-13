@@ -7,7 +7,7 @@ const FrequentlyQuestions = () => {
   };
   return (
     <div className="container">
-      <section id="frequently_questions" className="frequently-questions">
+      <section id="faq" className="frequently-questions">
         <div className="faq-section-heading">
           <h2>Frequently Asked Questions</h2>
         </div>

@@ -116,6 +116,11 @@ body {
   color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.main-container {
+  overflow-x: hidden;
 }
 
 .container {
@@ -147,6 +152,7 @@ body {
   background-position: 0 -14vh;
   height: 110vh;
   position: relative;
+  display: flow-root;
   overflow: hidden;
 }
 
@@ -588,6 +594,11 @@ body {
     line-height: 2.2rem;
   }
 }
+@media (max-width: 576px) {
+  .banner-bottom-area {
+    top: 0;
+  }
+}
 .button {
   color: #ffffff;
   text-transform: uppercase;
@@ -753,6 +764,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: -8vh;
   }
   #about .left-col {
     flex: 0 0 100%;
@@ -781,6 +793,11 @@ body {
   }
   #about p {
     width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  #about {
+    padding: 0 2.5rem;
   }
 }
 #about2 {
@@ -858,19 +875,9 @@ body {
 }
 @media (max-width: 992px) {
   #about2 {
+    margin-top: 10rem;
     flex-direction: column;
   }
-
-  #about2-left {
-    width: 100%;
-  }
-
-  .about2-image {
-    left: 1rem;
-    top: 2rem;
-  }
-}
-@media (max-width: 992px) {
   #about2 #about2-left {
     flex: 0 0 100%;
     width: 100%;
@@ -881,6 +888,22 @@ body {
   }
   #about2 h5 {
     width: 100%;
+  }
+
+  .about2-image {
+    left: 1rem;
+    top: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  #about2 #about2-left {
+    padding: 0 2rem;
+  }
+  #about2 #about2-right {
+    padding: 0 2rem;
+  }
+  #about2 .about2-image {
+    padding-right: 2rem;
   }
 }
 #services {
@@ -1221,6 +1244,28 @@ body {
     width: 100%;
   }
 }
+@media (max-width: 576px) {
+  .faq-section-heading h2 {
+    padding: 0 2.5rem;
+    font-size: 4rem;
+  }
+
+  .faq-left-col-header h5 {
+    font-size: 2rem;
+  }
+
+  .faq-section-paragraph {
+    padding: 0 2.5rem;
+  }
+  .faq-section-paragraph p {
+    padding: 0 2.5rem;
+  }
+
+  .faq-left-col {
+    padding: 0 2.5rem;
+    width: 100%;
+  }
+}
 .accordion {
   width: 100%;
   position: relative;
@@ -1463,6 +1508,12 @@ footer {
 
   .social-media-icons {
     margin-bottom: 6rem;
+  }
+}
+@media (max-width: 576px) {
+  .copyright {
+    padding: 0 2.5rem;
+    text-align: center;
   }
 }
 .preloader {

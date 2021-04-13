@@ -2,36 +2,37 @@ import Carousel from "react-elastic-carousel";
 import Button from "../components/button";
 import clsx from "clsx";
 import ServicesData from "../data/services-data";
-import { useMediaQuery } from "react-responsive";
-import { useEffect } from "react";
 
-export default function Services() {
+export default function Services({ breakPoints }) {
+  const {
+    xl: extraLargeScreen,
+    lg: largeScreen,
+    md: mediumScreen,
+    sm: smallScreen,
+  } = breakPoints;
   const handleClick = () => {
     const element = document.getElementById("about2");
     window.scroll(0, element.offsetTop - 200);
   };
-  const breakpointXl = useMediaQuery({ query: "(max-width: 1200px)" });
-  const breakpointLg = useMediaQuery({ query: "(max-width: 992px)" });
-  const breakpointMd = useMediaQuery({ query: "(max-width: 768px)" });
-  const breakpointSm = useMediaQuery({ query: "(max-width: 576px)" });
 
   const carouselProps = (function handleCarouselProps() {
     let padding = [0, 15];
     let itemsToShow = 3;
+
     switch (true) {
-      case breakpointSm:
+      case smallScreen:
         padding = [0, 10];
         itemsToShow = 1;
         break;
-      case breakpointMd:
+      case mediumScreen:
         padding = [0, 10];
         itemsToShow = 2;
         break;
-      case breakpointLg:
+      case largeScreen:
         padding = [0, 5];
         itemsToShow = 3;
         break;
-      case breakpointXl:
+      case extraLargeScreen:
         padding = [0, 20];
         itemsToShow = 3;
         break;
@@ -39,18 +40,9 @@ export default function Services() {
         padding = [0, 10];
         itemsToShow = 4;
     }
+
     return { padding, itemsToShow };
   })();
-
-  useEffect(() => {
-    /*
-      console.log('breakpointXl',breakpointXl)
-      console.log('breakpointLg',breakpointLg)
-      console.log('breakpointMd',breakpointMd)
-      console.log('breakpointSm',breakpointSm)
-      console.log('carouselProps',carouselProps)
-      */
-  });
 
   return (
     <div id="services">

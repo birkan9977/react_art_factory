@@ -8,17 +8,9 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import clsx from "clsx";
+import handleScroll from "../data/scroll-data";
 
-export default function Navbar({ show }) {
-  useEffect(() => {
-    let element = document.getElementById("main-navbar");
-    if (show) {
-      element.classList.add("sticky-header");
-    } else {
-      element.classList.remove("sticky-header");
-    }
-  }, [show]);
-
+export default function Navbar({ showStickyHeader, breakPoints }) {
   const [currentWindowLocation, setCurrentWindowLocation] = useState(
     window.location.href
   );
@@ -61,53 +53,44 @@ export default function Navbar({ show }) {
     }
   }, [currentWindowLocation]);
 
-  const handleClick = (e) => {
-    //console.log(e.target);
-    const clickedItem = e.target.innerHTML;
-    const regex = /\b\s\b/;
-    const idCorrectedItem = clickedItem.replace(regex, "_").toLowerCase();
-    const element = document.getElementById(idCorrectedItem);
+  useEffect(() => {
+    const location = currentWindowLocation;
+    if (location.match(/dropdown/)) {
+      return null;
+    }
+
+    const regex = /#.+\b/;
+    const found = location.match(regex);
+    if (found) {
+      const idCorrectedItem = found[0].substring(1);
+      const element = document.getElementById(idCorrectedItem);
+      if (element) {
+        const scrollValue = handleScroll(idCorrectedItem, breakPoints);
+        window.scroll(0, element.offsetTop + scrollValue);
+      }
+    } else {
+      //home
+      window.scroll(0, 0);
+    }
     setTriggerActive(false);
     setEnlargeDropDown(false);
-
-    switch (clickedItem) {
-      case "Home":
-        window.scroll(0, 0);
-        break;
-
-      case "About":
-        window.scroll(0, element.offsetTop - 200);
-        break;
-
-      case "Services":
-        window.scroll(0, element.offsetTop - 100);
-        break;
-
-      case "Frequently Questions":
-        window.scroll(0, element.offsetTop - 90);
-        break;
-
-      case "Contact Us":
-        window.scroll(0, element.offsetTop - 80);
-        break;
-
-      default:
-        break;
-    }
-  };
+    //console.log(size)
+  }, [currentWindowLocation, breakPoints]);
 
   const handleNenuTrigger = () => {
     setTriggerActive(!triggerActive);
   };
 
   const handleClickDropDown = (evt) => {
-    console.log(enlargeDropDown, evt.target.innerHTML);
     if (evt.target.innerHTML === "Drop Down") {
       setEnlargeDropDown(!enlargeDropDown);
     }
   };
   return (
-    <nav id="main-navbar" className="navbar-default">
+    <nav
+      id="main-navbar"
+      className={clsx("navbar-default", { "sticky-header": showStickyHeader })}
+    >
       {/*logo start*/}
       <a href="/" className="main-logo">
         Art Factory
@@ -119,30 +102,22 @@ export default function Navbar({ show }) {
         <div className="menu-container">
           <ul className={clsx("menu", triggerActive && "active-menu")}>
             <li className="menu-list">
-              <Link to="/" className="menu-items" onClick={handleClick}>
+              <Link to="/" className="menu-items">
                 Home
               </Link>
             </li>
             <li className="menu-list">
-              <Link to="/#about" className="menu-items" onClick={handleClick}>
+              <Link to="/#about" className="menu-items">
                 About
               </Link>
             </li>
             <li className="menu-list">
-              <Link
-                to="/#services"
-                className="menu-items"
-                onClick={handleClick}
-              >
+              <Link to="/#services" className="menu-items">
                 Services
               </Link>
             </li>
             <li className="menu-list">
-              <Link
-                to="/#frequentlyQuestions"
-                className="menu-items"
-                onClick={handleClick}
-              >
+              <Link to="/#faq" className="menu-items">
                 Frequently Questions
               </Link>
             </li>
@@ -162,10 +137,7 @@ export default function Navbar({ show }) {
                       enlargeDropDown && "drop-down-enlarge"
                     )}
                   >
-                    <Link
-                      to="/dropdown#aboutus"
-                      className="submenu-anchor-item"
-                    >
+                    <Link to="/#about" className="submenu-anchor-item">
                       About Us
                     </Link>
                   </li>
@@ -175,10 +147,7 @@ export default function Navbar({ show }) {
                       enlargeDropDown && "drop-down-enlarge"
                     )}
                   >
-                    <Link
-                      to="/dropdown#features"
-                      className="submenu-anchor-item"
-                    >
+                    <Link to="/#features" className="submenu-anchor-item">
                       Features
                     </Link>
                   </li>
@@ -188,7 +157,7 @@ export default function Navbar({ show }) {
                       enlargeDropDown && "drop-down-enlarge"
                     )}
                   >
-                    <Link to="/dropdown#faq" className="submenu-anchor-item">
+                    <Link to="/#faq" className="submenu-anchor-item">
                       FAQ's
                     </Link>
                   </li>
@@ -198,7 +167,7 @@ export default function Navbar({ show }) {
                       enlargeDropDown && "drop-down-enlarge"
                     )}
                   >
-                    <Link to="/dropdown#blog" className="submenu-anchor-item">
+                    <Link to="/#blog" className="submenu-anchor-item">
                       Blog
                     </Link>
                   </li>
@@ -207,7 +176,7 @@ export default function Navbar({ show }) {
             </li>
 
             <li className="menu-list">
-              <Link to="/#contact" className="menu-items" onClick={handleClick}>
+              <Link to="/#contact_us" className="menu-items">
                 Contact Us
               </Link>
             </li>
@@ -228,7 +197,7 @@ export default function Navbar({ show }) {
               <Route exact path="/dropdown">
                 <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
               </Route>
-              <Route path="#contact">
+              <Route path="#contact_us">
                 <GetLocation currentPath={(e) => handleCurrentLocation(e)} />
               </Route>
             </Switch>
@@ -241,21 +210,21 @@ export default function Navbar({ show }) {
         <div
           className={clsx(
             "line1",
-            show && "sticky-trigger",
+            showStickyHeader && "sticky-trigger",
             triggerActive && "line1-trigger-active"
           )}
         ></div>
         <div
           className={clsx(
             "line2",
-            show && "sticky-trigger",
+            showStickyHeader && "sticky-trigger",
             triggerActive && "line2-trigger-active"
           )}
         ></div>
         <div
           className={clsx(
             "line3",
-            show && "sticky-trigger",
+            showStickyHeader && "sticky-trigger",
             triggerActive && "line3-trigger-active"
           )}
         ></div>
