@@ -48,8 +48,7 @@ const App = () => {
     setTransitionData(newTransitionData);
   };
 
-  useEffect(() => {
-  }, [breakPoints]);
+  useEffect(() => {}, [breakPoints]);
 
   const {
     fixedNavBarStart,
