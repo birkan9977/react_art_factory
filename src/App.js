@@ -42,35 +42,13 @@ const App = () => {
 
   const handleSize = () => {
     const newSize = breakPointsData(window.innerWidth);
-    Object.entries(newSize).map(([key, value]) => {
-      if (newSize[key] !== breakPoints[key]) {
-        return {
-          ...newSize,
-          [key]: value,
-        };
-      }
-      return newSize[key];
-    });
-    //console.log(newSize)
     setBreakPoints(newSize);
 
     const newTransitionData = transitionFixedData(newSize);
-
-    Object.entries(newTransitionData).map(([key, value]) => {
-      if (newTransitionData[key] !== transitionData[key]) {
-        return {
-          ...newTransitionData,
-          [key]: value,
-        };
-      }
-      return newTransitionData[key];
-    });
-    console.log(newTransitionData);
     setTransitionData(newTransitionData);
   };
 
   useEffect(() => {
-    //console.log("breakPoints", breakPoints);
   }, [breakPoints]);
 
   const {
@@ -82,7 +60,6 @@ const App = () => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const isShow = currPos.y > fixedNavBarStart;
-      //console.log("currPos.y", currPos.y, prevPos.y);
       if (isShow !== showStickyHeader) {
         setShowStickyHeader(isShow);
       }
