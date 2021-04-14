@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+open
 # production
 /build
 
@@ -25,4 +25,4 @@ yarn.lock
 package-lock.json
 src/delete.txt
 .eslintcache
-.gitignore
+

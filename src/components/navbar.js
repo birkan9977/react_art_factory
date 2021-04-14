@@ -147,7 +147,7 @@ export default function Navbar({ showStickyHeader, breakPoints }) {
                       enlargeDropDown && "drop-down-enlarge"
                     )}
                   >
-                    <Link to="/#features" className="submenu-anchor-item">
+                    <Link to="." className="submenu-anchor-item">
                       Features
                     </Link>
                   </li>
