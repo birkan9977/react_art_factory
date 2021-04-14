@@ -539,9 +539,7 @@ body {
   flex: 0 0 50%;
   color: #ffffff;
   line-height: 1.5;
-  transition: all 1s ease;
-  transform: translateX(-5rem);
-  opacity: 0;
+  visibility: hidden;
 }
 .left-column h1 {
   font-size: 6rem;
@@ -565,11 +563,6 @@ body {
   letter-spacing: 0.025rem;
   margin-bottom: 0.4rem;
   color: #ffffff;
-}
-
-.left-transition {
-  transform: translateX(0);
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -631,9 +624,7 @@ body {
 .right-column {
   flex: 0 0 50%;
   padding-left: 15px;
-  transition: all 1s ease;
-  transform: translateX(5rem);
-  opacity: 0;
+  visibility: hidden;
 }
 
 .banner-image {
@@ -702,21 +693,6 @@ body {
   width: 63rem;
   height: auto;
   visibility: hidden;
-}
-@keyframes leftimage {
-  from {
-    visibility: hidden;
-    transform: translate(-5rem);
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    transform: translate(0);
-    opacity: 1;
-  }
-}
-#about .left-image-animate {
-  animation: leftimage 2s forwards;
 }
 #about h5 {
   width: 80%;
@@ -1583,9 +1559,54 @@ footer {
     opacity: 0;
   }
 }
+.left-transition {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .right-transition {
   transform: translateX(0);
   opacity: 1;
+}
+
+@keyframes appearfromleft {
+  from {
+    visibility: hidden;
+    transform: translate(-5rem);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes appearfromright {
+  from {
+    visibility: hidden;
+    transform: translate(5rem);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+.left-image-animate {
+  animation: appearfromleft 2s forwards;
+}
+
+.right-image-animate {
+  animation: appearfromright 1s forwards;
+}
+
+.left-animate {
+  animation: appearfromleft 1s forwards;
+}
+
+.right-animate {
+  animation: appearfromright 1s forwards;
 }
 
 /*# sourceMappingURL=main.css.map */
