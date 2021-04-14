@@ -1,3 +1,6 @@
 # React Js App
 
-This project is created with react js hooks.
+### responsive web design
+
+This project was created with react js hooks.
+Transitional animations use a responsive scroll data changing dynamically based on pase size.
