@@ -9,8 +9,8 @@ export default function BannerArea({ bannerTransition, breakPoints }) {
     const scrollValue = handleScroll("about2", breakPoints);
     window.scroll(0, element.offsetTop + scrollValue);
   };
-//left-image-animate
-//left-transition
+  //left-image-animate
+  //left-transition
   return (
     <div id="banner-bottom-area" className="banner-bottom-area">
       <div

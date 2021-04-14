@@ -604,8 +604,6 @@ $outline-width: 0.1rem;
   }
 }
 
-
-
 @media (max-width: $breakpoint-md) {
   .banner-bottom-area {
     flex-direction: column;
@@ -665,7 +663,7 @@ $outline-width: 0.1rem;
 .right-column {
   flex: 0 0 50%;
   padding-left: 15px;
-  visibility:hidden;
+  visibility: hidden;
 }
 
 .banner-image {
@@ -736,8 +734,6 @@ $outline-width: 0.1rem;
     height: auto;
     visibility: hidden;
   }
-
-  
 
   h5 {
     width: 80%;
