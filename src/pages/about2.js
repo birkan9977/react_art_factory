@@ -56,7 +56,7 @@ export default function About2({ animateAbout2Right }) {
             <img
               id="about2-right-image"
               className={clsx("about2-image", {
-                "right-transition": animateAbout2Right,
+                "right-image-animate": animateAbout2Right,
               })}
               src={rightImage}
               alt=""

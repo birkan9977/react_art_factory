@@ -91,10 +91,12 @@ body {
   color: $main-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .main-container {
   background-color: if($test-background-color, blueviolet, null);
+  overflow-x: hidden;
 }
 
 .container {
@@ -132,7 +134,7 @@ body {
   position: relative;
   //z-index:49;
   background-color: if($test-background-color, rgb(109, 63, 25), null);
-  //display: flow-root;
+  display: flow-root;
   overflow: hidden;
 }
 
@@ -574,9 +576,7 @@ $outline-width: 0.1rem;
   flex: 0 0 50%;
   color: $main-white;
   line-height: 1.5;
-  transition: all 1s ease;
-  transform: translateX(-5rem);
-  opacity: 0;
+  visibility: hidden;
 
   h1 {
     font-size: 6rem;
@@ -604,11 +604,6 @@ $outline-width: 0.1rem;
   }
 }
 
-.left-transition {
-  transform: translateX(0);
-  opacity: 1;
-}
-
 @media (max-width: $breakpoint-md) {
   .banner-bottom-area {
     flex-direction: column;
@@ -630,7 +625,11 @@ $outline-width: 0.1rem;
     }
   }
 }
-
+@media (max-width: $breakpoint-sm) {
+  .banner-bottom-area {
+    top: 0;
+  }
+}
 .button {
   color: $main-white;
   text-transform: uppercase;
@@ -664,9 +663,7 @@ $outline-width: 0.1rem;
 .right-column {
   flex: 0 0 50%;
   padding-left: 15px;
-  transition: all 1s ease;
-  transform: translateX(5rem);
-  opacity: 0;
+  visibility: hidden;
 }
 
 .banner-image {
@@ -738,24 +735,6 @@ $outline-width: 0.1rem;
     visibility: hidden;
   }
 
-  @keyframes leftimage {
-    from {
-      visibility: hidden;
-      transform: translate(-5rem);
-      opacity: 0;
-    }
-
-    to {
-      visibility: visible;
-      transform: translate(0);
-      opacity: 1;
-    }
-  }
-
-  .left-image-animate {
-    animation: leftimage 2s forwards;
-  }
-
   h5 {
     width: 80%;
     font-size: 2.5rem;
@@ -803,6 +782,7 @@ $outline-width: 0.1rem;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: -8vh;
 
     .left-col {
       flex: 0 0 100%;
@@ -835,7 +815,11 @@ $outline-width: 0.1rem;
     }
   }
 }
-
+@media (max-width: $breakpoint-sm) {
+  #about {
+    padding: 0 2.5rem;
+  }
+}
 #about2 {
   margin-top: 18rem;
   display: flex;
@@ -889,6 +873,7 @@ $outline-width: 0.1rem;
   transition: all 1s ease;
   transform: translateX(5rem);
   opacity: 0;
+  max-width: 100%;
 }
 
 #about2-right {
@@ -900,44 +885,50 @@ $outline-width: 0.1rem;
 }
 
 @media (max-width: $breakpoint-xl) {
-  #about2-right-image {
-    width: 53rem;
+  .about2-image {
     top: 17rem;
   }
 }
 @media (max-width: $breakpoint-lg) {
   #about2 {
+    margin-top: 10rem;
     flex-direction: column;
-  }
 
-  #about2-left {
-    width: 100%;
-  }
-
-  #about2-right-image {
-    left: 1rem;
-    top: 2rem;
-    width: auto;
-  }
-}
-@media (max-width: $breakpoint-lg) {
-  #about2 {
     #about2-left {
       flex: 0 0 100%;
       width: 100%;
     }
+
     #about2-right {
       flex: 0 0 100%;
       padding: 0 1rem;
     }
+
     h5 {
       width: 100%;
     }
-    img {
-      max-width: 100%;
+  }
+
+  .about2-image {
+    left: 1rem;
+    top: 2rem;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  #about2 {
+    #about2-left {
+      padding: 0 2rem;
+    }
+    #about2-right {
+      padding: 0 2rem;
+    }
+    .about2-image {
+      padding-right: 2rem;
     }
   }
 }
+
 //service
 #services {
   padding-top: 13rem;
@@ -1162,6 +1153,7 @@ $outline-width: 0.1rem;
     padding: 4rem;
   }
 }
+
 //frequently questions
 .frequently-questions {
   display: flex;
@@ -1281,6 +1273,27 @@ $outline-width: 0.1rem;
   }
 
   .faq-right-col {
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .faq-section-heading h2 {
+    padding: 0 2.5rem;
+    font-size: 4rem;
+  }
+  .faq-left-col-header h5 {
+    font-size: 2rem;
+  }
+  .faq-section-paragraph {
+    padding: 0 2.5rem;
+
+    p {
+      padding: 0 2.5rem;
+    }
+  }
+  .faq-left-col {
+    padding: 0 2.5rem;
     width: 100%;
   }
 }
@@ -1546,25 +1559,34 @@ footer {
     margin-bottom: 6rem;
   }
 }
+
+@media (max-width: $breakpoint-sm) {
+  .copyright {
+    padding: 0 2.5rem;
+    text-align: center;
+  }
+}
 //preloader
-.preload-visible {
+.preloader {
   display: block;
-}
-
-.preload-invisible {
-  display: none;
-}
-
-#preloader {
+  transition: all 0.4s ease;
+  opacity: 1;
+  visibility: visible;
   overflow: hidden;
   background-image: linear-gradient(145deg, #00b4c6 0%, #0088e8 100%);
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  position: fixed;
   z-index: 9999;
   color: #fff;
+}
+
+.preload-invisible {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -100;
 }
 
 #preloader .jumper {
@@ -1613,7 +1635,53 @@ footer {
   }
 }
 
+//transitions
+.left-transition {
+  transform: translateX(0);
+  opacity: 1;
+}
 .right-transition {
   transform: translateX(0);
   opacity: 1;
+}
+
+//animations
+@keyframes appearfromleft {
+  from {
+    visibility: hidden;
+    transform: translate(-5rem);
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes appearfromright {
+  from {
+    visibility: hidden;
+    transform: translate(5rem);
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.left-image-animate {
+  animation: appearfromleft 2s forwards;
+}
+.right-image-animate {
+  animation: appearfromright 1s forwards;
+}
+.left-animate {
+  animation: appearfromleft 1s forwards;
+}
+.right-animate {
+  animation: appearfromright 1s forwards;
 }

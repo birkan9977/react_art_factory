@@ -1,18 +1,21 @@
 import sliderimg from "../assets/images/slider-icon.png";
 import Button from "./button";
 import clsx from "clsx";
+import handleScroll from "../data/scroll-data";
 
-export default function BannerArea({ bannerTransition }) {
+export default function BannerArea({ bannerTransition, breakPoints }) {
   const handleClick = () => {
     const element = document.getElementById("about");
-    window.scroll(0, element.offsetTop - 200);
+    const scrollValue = handleScroll("about2", breakPoints);
+    window.scroll(0, element.offsetTop + scrollValue);
   };
-
+  //left-image-animate
+  //left-transition
   return (
     <div id="banner-bottom-area" className="banner-bottom-area">
       <div
         id="banner-left-col"
-        className={clsx("left-column", { "left-transition": bannerTransition })}
+        className={clsx("left-column", { "left-animate": bannerTransition })}
       >
         <h1>
           Art Factory is free <strong>for YOU</strong>
@@ -31,7 +34,7 @@ export default function BannerArea({ bannerTransition }) {
       <div
         id="banner-right-col"
         className={clsx("right-column", {
-          "right-transition": bannerTransition,
+          "right-animate": bannerTransition,
         })}
       >
         <img
