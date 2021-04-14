@@ -482,8 +482,8 @@ body {
     z-index: 160;
   }
   .navbar-default .menu-trigger .line1,
-  .navbar-default .menu-trigger .line2,
-  .navbar-default .menu-trigger .line3 {
+.navbar-default .menu-trigger .line2,
+.navbar-default .menu-trigger .line3 {
     display: block;
     position: absolute;
     height: 0.2rem;
@@ -961,8 +961,7 @@ body {
 .service-box button {
   margin-top: 2rem;
 }
-.service-box:hover .button,
-.service-box:hover .icon {
+.service-box:hover .button, .service-box:hover .icon {
   background-color: #0088e8;
 }
 
